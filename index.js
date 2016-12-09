@@ -2,6 +2,7 @@ var level1 = require('./level1.js');
 var initialPopulation = require('./initialPopulation.js');
 var breeding = require('./breeding.js');
 var utility = require('./utility.js');
+var selection = require('./selection.js');
 ///////////////////////////////////////
 //                                   //
 //                                   //
@@ -65,57 +66,57 @@ deleteTestMonsters = function(){
 //                                   //
 ///////////////////////////////////////
 
-
-// Populates array with cumulative fitness scores.
-createRouletteSelectionArray = function(){
-
-  // Initializes array
-  rouletteSelectionArray = [];
-
-  rouletteSelectionArray.push(0);
-  rouletteSelectionArray.push(population[0].fitness);
-
-  for(i=1;i<population.length;i++)
-  {
-    rouletteSelectionArray.push(rouletteSelectionArray[i]+population[i].fitness)
-  }
-
-  return rouletteSelectionArray;
-};
-
-// Returns the position of a chosen monster (using roulette selection)
-// in the population array.
-rouletteChooser = function(){
-
-  // Find a random number between 0 and the total of the cumulative fitness scores.
-  randomNumber = utility.getRandom(0,rouletteSelectionArray[rouletteSelectionArray.length-1]);
-  for(i=1;i<rouletteSelectionArray.length; i++)
-  {
-    if(randomNumber < rouletteSelectionArray[i] && randomNumber >= rouletteSelectionArray[i-1])
-    {
-      return i;
-    }
-  }
-
-};
-
-// Adds the appropriate amount of monsters selected using roulette selection
-// into array of monsters for the level.
-selectLevelMonsters = function(numberOfMonsters){
-
-  createRouletteSelectionArray();
-
-  // Initializes array
-  levelMonsterArray = [];
-
-  // Finds monsters
-  for(j=0; j<numberOfMonsters; j++)
-  {
-    levelMonsterArray.push(population[rouletteChooser()])
-
-  }
-  return levelMonsterArray;
-}
+//
+// // Populates array with cumulative fitness scores.
+// createRouletteSelectionArray = function(){
+//
+//   // Initializes array
+//   rouletteSelectionArray = [];
+//
+//   rouletteSelectionArray.push(0);
+//   rouletteSelectionArray.push(population[0].fitness);
+//
+//   for(i=1;i<population.length;i++)
+//   {
+//     rouletteSelectionArray.push(rouletteSelectionArray[i]+population[i].fitness)
+//   }
+//
+//   return rouletteSelectionArray;
+// };
+//
+// // Returns the position of a chosen monster (using roulette selection)
+// // in the population array.
+// rouletteChooser = function(){
+//
+//   // Find a random number between 0 and the total of the cumulative fitness scores.
+//   randomNumber = utility.getRandom(0,rouletteSelectionArray[rouletteSelectionArray.length-1]);
+//   for(i=1;i<rouletteSelectionArray.length; i++)
+//   {
+//     if(randomNumber < rouletteSelectionArray[i] && randomNumber >= rouletteSelectionArray[i-1])
+//     {
+//       return i;
+//     }
+//   }
+//
+// };
+//
+// // Adds the appropriate amount of monsters selected using roulette selection
+// // into array of monsters for the level.
+// selectLevelMonsters = function(numberOfMonsters){
+//
+//   createRouletteSelectionArray();
+//
+//   // Initializes array
+//   levelMonsterArray = [];
+//
+//   // Finds monsters
+//   for(j=0; j<numberOfMonsters; j++)
+//   {
+//     levelMonsterArray.push(population[rouletteChooser()])
+//
+//   }
+//   return levelMonsterArray;
+// }
 
 ///////////////////////////////////////
 //                                   //
@@ -127,12 +128,12 @@ selectLevelMonsters = function(numberOfMonsters){
 
 // Selects parents by the roulette selection method.
 createChildren = function(){
-  createRouletteSelectionArray();
+  selection.createRouletteSelectionArray(population);
 
   for(x=0;x<numberOfChildrenCreated; x++)
   {
-    parent1 = population[rouletteChooser()-1];
-    parent2 = population[rouletteChooser()-1];
+    parent1 = population[selection.rouletteChooser()-1];
+    parent2 = population[selection.rouletteChooser()-1];
 
     // Breeds the two parents to create a child
     crossoverBreeding(parent1,parent2);
@@ -585,7 +586,7 @@ create createChildren
 
 */
 
-//Main();
+Main();
 
 ///////////////////////////////////////
 //                                   //

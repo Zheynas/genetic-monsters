@@ -8,7 +8,7 @@ maxStartStat = 3;
 
 // Creates the first population
 exports.createInitialPopulation = function(populationSize){
-  
+
   // Initialize
   population = [];
 

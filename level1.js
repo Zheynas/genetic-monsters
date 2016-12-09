@@ -16,9 +16,9 @@ exports.selectRoomForLevel = function(numberOfRooms){
 
   return levelOneRooms.length;
 
-}
+};
 
-
+// Creates rooms for level 1
 exports.createRooms = function(){
 
 // Room A

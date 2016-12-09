@@ -3,8 +3,14 @@ var exports = module.exports = {};
 
 population = [];
 
+maxStartStat = 3;
+
+
 // Creates the first population
 exports.createInitialPopulation = function(populationSize){
+  
+  // Initialize
+  population = [];
 
   for(i=0;i<populationSize;i++)
   {
@@ -12,6 +18,7 @@ exports.createInitialPopulation = function(populationSize){
   }
   return population;
 };
+
 
 // Creates a monster (for initial population)
 exports.createMonster = function(){

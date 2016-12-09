@@ -60,29 +60,6 @@ deleteTestMonsters = function(){
 ///////////////////////////////////////
 //                                   //
 //                                   //
-//    Room Selection Functions       //
-//                                   //
-//                                   //
-///////////////////////////////////////
-
-level1RoomCount = 7;
-level1Rooms = [];
-
-
-level1RoomSelection = function(){
-  roomArray = level1.createRooms();
-
-  for(i=0;i<level1RoomCount; i++)
-  {
-    randomNumber = utility.getRandom(0,roomArray.length);
-    level1Rooms.push(roomArray[randomNumber]);
-    roomArray.splice(randomNumber,1);
-  }
-
-};
-///////////////////////////////////////
-//                                   //
-//                                   //
 //   Monster Selection Functions     //
 //                                   //
 //                                   //
@@ -608,7 +585,7 @@ create createChildren
 
 */
 
-Main();
+//Main();
 
 ///////////////////////////////////////
 //                                   //

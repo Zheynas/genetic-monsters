@@ -1,18 +1,20 @@
-var utility = require('./utility.js')
+var utility = require('./utility.js');
+var exports = module.exports = {};
+
 population = [];
 
 // Creates the first population
-module.exports.createInitialPopulation = function(populationSize){
+exports.createInitialPopulation = function(populationSize){
 
   for(i=0;i<populationSize;i++)
   {
-    module.exports.createMonster();
+    exports.createMonster();
   }
   return population;
 };
 
 // Creates a monster (for initial population)
-module.exports.createMonster = function(){
+exports.createMonster = function(){
   var monster = new Object();
 
   monster.health_value = utility.getRandom(1,maxStartStat+1);
@@ -25,14 +27,14 @@ module.exports.createMonster = function(){
   monster.damage_code = utility.decbin(monster.damage_value,8);
 
   monster.fitness = fitnessFunction(monster);
-  monster.type_code = module.exports.createTypeCode();
+  monster.type_code = exports.createTypeCode();
 
   population.push(monster);
 
   return monster;
 };
 
-module.exports.createTypeCode = function(){
+exports.createTypeCode = function(){
   type = "";
   // Melee / Ranged / Magic
   choices = ["AAAAA","BBBBB","CCCCC"];

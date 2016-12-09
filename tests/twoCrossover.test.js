@@ -1,5 +1,5 @@
 var chai = require('chai');
-var breeding = require('../monsterLogic/breeding.js');
+var twoCrossover = require('../monsterLogic/crossoverTypeIdeas/twoCrossover.js');
 
 var expect = chai.expect;
 var assert = chai.assert;
@@ -28,9 +28,8 @@ var monster2 = {
   fitness : 15
 }
 
-describe('Breeding functions', function(){
-
-  it('Child monster has all stats');
-  it('Child has a type');
-  it('Correct number of childrent created');
+describe('2 point Crossover',function(){
+  it('Child has correct type',function(){
+    expect(twoPointCrossover(monster,monster2).length = 8);
+  })
 })

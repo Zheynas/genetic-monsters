@@ -1,5 +1,5 @@
 var chai = require('chai');
-var breeding = require('../monsterLogic/breeding.js');
+var threeParent = require('../monsterLogic/crossoverTypeIdeas/threeParentCrossover.js');
 
 var expect = chai.expect;
 var assert = chai.assert;
@@ -28,9 +28,24 @@ var monster2 = {
   fitness : 15
 }
 
-describe('Breeding functions', function(){
+var monster3 = {
+  health_value: 2,
+  health_code:"00000010",
+  speed_value: 2,
+  speed_code:"00000010",
+  damage_value: 2,
+  damage_code:"00000010",
+  type_code: "BBBBBBBB",
+  dominant_type: "B",
+  fitness : 15
+}
 
-  it('Child monster has all stats');
-  it('Child has a type');
-  it('Correct number of childrent created');
+
+
+describe('Three parent functions', function(){
+
+  it('Child monster has all stats', function(){
+    expect(threeParentCrossover(monster, monster2, monster3).length).to.equal(8);
+  });
+
 })

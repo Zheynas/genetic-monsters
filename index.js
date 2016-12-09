@@ -3,6 +3,8 @@ var initialPopulation = require('./initialPopulation.js');
 var breeding = require('./breeding.js');
 var utility = require('./utility.js');
 var selection = require('./selection.js');
+var statChange = require('./statChange.js');
+
 ///////////////////////////////////////
 //                                   //
 //                                   //
@@ -58,114 +60,6 @@ deleteTestMonsters = function(){
   }
 };
 
-///////////////////////////////////////
-//                                   //
-//                                   //
-//       Stat Change Functions       //
-//                                   //
-//                                   //
-///////////////////////////////////////
-
-// Randomly decides whether the skill will increase or decrease by 1
-skillChange = function(){
-  randomNumber = utility.getRandom(0,2); // 0 or 1
-
-  if(randomNumber==0){
-    return 1;
-  }else{
-    return -1;
-  }
-};
-
-/***************/
-//    Health   //
-/***************/
-
-changeHealth= function(monster, changeAmount){
-  monster.health_value = monster.health_value + changeAmount;
-  if(monster.health_value < 1){
-    monster.health_value = 1;
-  }
-  monster.health_code = utility.decbin(monster.health_value,8);
-  return monster ;
-
-};
-
-
-/***************/
-//    Speed    //
-/***************/
-
-changeSpeed= function(monster, changeAmount){
-
-  monster.speed_value = monster.speed_value + changeAmount;
-  if(monster.speed_value < 1){
-    monster.speed_value = 1;
-  }
-  monster.speed_code = utility.decbin(monster.speed_value,8);
-  return monster ;
-
-};
-
-/***************/
-//    Damage   //
-/***************/
-
-changeDamage= function(monster, changeAmount){
-
-  monster.damage_value = monster.damage_value + changeAmount;
-  if(monster.damage_value < 1){
-    monster.damage_value = 1;
-  }
-  monster.damage_code = utility.decbin(monster.damage_value,8);
-  return monster ;
-};
-
-/****************/
-//    Mixture   //
-/****************/
-
-// Increases stats according to randomly selected amoubts
-increaseMonsterSkills = function(){
-
-  monsterSkillChange = [0,maxSkillIncreaseAmount+1];
-  finalSkillChange = [];
-
-  // create array beginning at 0 and ending at maxSkillIncreaseAmount
-  // make numberOfStats-1 random numbers
-  for(i=0; i<numberOfStats-1; i++)
-  {
-    monsterSkillChange.push(utility.getRandom(0,maxSkillIncreaseAmount+1));
-  }
-
-  // sort array
-  monsterSkillChange.sort();
-
-  // find differences between array elements
-  for(x=0; x< numberOfStats+1; x++)
-  {
-    finalSkillChange.push( (monsterSkillChange[x+1]- monsterSkillChange[x]) );
-
-  }
-
-  // apply those to the stats.
-  for(y=0;y<population.length;y++)
-  {
-
-    increaseHealth(population[y],finalSkillChange[0]);
-    increaseSpeed(population[y],finalSkillChange[1]);
-    increaseDamage(population[y],finalSkillChange[2]);
-    population[y].fitness = fitnessFunction(population[y]);
-
-  }
-
-  //Increase control stats
-  increaseHealth(controlMonster,finalSkillChange[0]);
-  increaseSpeed(controlMonster,finalSkillChange[1]);
-  increaseDamage(controlMonster,finalSkillChange[2]);
-  controlMonster.fitness = fitnessFunction(controlMonster);
-
-};
 
 ///////////////////////////////////////
 //                                   //

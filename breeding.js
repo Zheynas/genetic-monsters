@@ -1,5 +1,7 @@
 var utility = require('./utility.js');
 var selection = require('./selection.js');
+var statChange = require('./statChange.js');
+
 
 var exports = module.exports = {};
 
@@ -65,17 +67,17 @@ exports.mutateChild = function(childMonster){
 
     // Health
     if(skillAddition.charAt(0)=="1"){
-      changeHealth(childMonster,skillChange());
+      statChange.changeHealth(childMonster,statChange.skillChange());
     }
 
     // Speed
     if(skillAddition.charAt(1)=="1"){
-      changeSpeed(childMonster,skillChange());
+      statChange.changeSpeed(childMonster,statChange.skillChange());
     }
 
     // Damage
     if(skillAddition.charAt(1)=="1"){
-      changeDamage(childMonster,skillChange());
+      statChange.changeDamage(childMonster,statChange.skillChange());
     }
 
     childMonster.fitness = fitnessFunction(childMonster);

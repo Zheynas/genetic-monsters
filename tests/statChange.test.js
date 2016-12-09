@@ -1,5 +1,5 @@
 var chai = require('chai');
-var statChange = require('../statChange.js');
+var statChange = require('../monsterLogic/statChange.js');
 
 var expect = chai.expect;
 var assert = chai.assert;

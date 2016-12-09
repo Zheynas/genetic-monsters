@@ -1,6 +1,5 @@
 var chai = require('chai');
-var selection = require('../selection.js');
-var initialPopulation = require('../initialPopulation.js');
+var selection = require('../monsterLogic/selection.js');
 
 
 var expect = chai.expect;

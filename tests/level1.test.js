@@ -1,5 +1,5 @@
 var chai = require('chai');
-var level1 = require('../level1.js');
+var level1 = require('../monsterLogic/level1.js');
 
 var expect = chai.expect;
 var assert = chai.assert;

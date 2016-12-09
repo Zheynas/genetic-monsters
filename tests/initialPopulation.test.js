@@ -1,13 +1,21 @@
 var chai = require('chai');
-var initialPopulation = require('../initialPopulation.js');
+var initialPopulation = require('../monsterLogic/initialPopulation.js');
 
 var expect = chai.expect;
 var assert = chai.assert;
 
+initialPopulationSize = 10;
+maxStartStat = 3;
+
+// This the fitness function that needs to be altered.
+fitnessFunction = function(monster){
+  return 2*monster.health_value + monster.speed_value + 2*monster.damage_value;
+};
+
 describe('Inital population creation', function(){
 
   it('Correct number of monsters made', function(){
-    expect(initialPopulation.createInitialPopulation(20).length).to.equal(20);
+    expect(initialPopulation.createInitialPopulation(initialPopulationSize).length).to.equal(initialPopulationSize);
   })
   it('Stats created correctly', function(){
     assert.oneOf(population[0].health_value, [1,2,3]);

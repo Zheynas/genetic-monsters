@@ -97,10 +97,4 @@ exports.increaseMonsterSkills = function(){
 
   }
 
-  //Increase control stats
-  exports.changeHealth(controlMonster,finalSkillChange[0]);
-  exports.changeSpeed(controlMonster,finalSkillChange[1]);
-  exports.changeDamage(controlMonster,finalSkillChange[2]);
-  controlMonster.fitness = fitnessFunction(controlMonster);
-
 };

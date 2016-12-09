@@ -1,8 +1,12 @@
 var chai = require('chai');
-var breeding = require('../breeding.js');
+var breeding = require('../monsterLogic/breeding.js');
 
 var expect = chai.expect;
 var assert = chai.assert;
+
+
+
+
 
 var monster = {
   health_value: 3,

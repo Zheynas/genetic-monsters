@@ -1,18 +1,13 @@
 var utility = require('./utility.js');
 var exports = module.exports = {};
 
-population = [];
-
-maxStartStat = 3;
-
-
 // Creates the first population
-exports.createInitialPopulation = function(populationSize){
+exports.createInitialPopulation = function(){
 
   // Initialize
   population = [];
 
-  for(i=0;i<populationSize;i++)
+  for(i=0;i<initialPopulationSize;i++)
   {
     exports.createMonster();
   }
@@ -51,8 +46,3 @@ exports.createTypeCode = function(){
 
 return type;
 }
-
-// This the fitness function that needs to be altered.
-fitnessFunction = function(monster){
-  return 2*monster.health_value + monster.speed_value + 2*monster.damage_value;
-};

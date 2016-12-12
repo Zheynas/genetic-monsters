@@ -9,7 +9,6 @@ var exports = module.exports = {};
 // Selects parents by the roulette selection method.
 exports.createChildren = function(){
   selection.createRouletteSelectionArray(population);
-  names = monsterName.namesForLevel(numberOfChildrenCreated);
 
 
   for(x=0;x<numberOfChildrenCreated; x++)
@@ -49,8 +48,6 @@ exports.crossoverBreeding = function(parent1,parent2,x){
   childMonster.damage_code = childDamage[1];
 
   childMonster.type_code = exports.twoCrossover(parent1,parent2);
-
-  childMonster.name = names[x];
 
   //Checks if child will mutate
   if(exports.mutateChild(childMonster) == false)

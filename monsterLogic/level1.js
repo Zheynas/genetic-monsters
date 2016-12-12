@@ -1,4 +1,7 @@
 var utility = require('./utility.js');
+var selection = require('./selection.js');
+var monsterName = require('./names.js');
+
 var exports = module.exports = {};
 
 levelOneRooms=[];
@@ -6,38 +9,70 @@ allRooms=[];
 
 // randomly selects required number of rooms
 exports.selectRoomForLevel = function(numberOfRooms){
+  exports.createRooms();
 
-  for(i=0;i<numberOfRooms; i++)
-  {
-    randomNumber = utility.getRandom(0,allRooms.length);
-    levelOneRooms.push(levelOneRooms[randomNumber]);
-    allRooms.splice(randomNumber,1);
-  }
+  rooms = utility.shuffle(allRooms);
+  levelOneRooms  = rooms.slice(0,numberOfRooms);
 
-  return levelOneRooms.length;
+
+return levelOneRooms;
 
 };
 
+//
+// roomCreator = function(name, total, monsterNames, monsters){
+//   this.name = name;
+//   this.total = total;
+//   this.monsters = monsters;
+// }
+
+
+
+
+
+
 // Creates rooms for level 1
 exports.createRooms = function(){
+
+// A = new RoomCreator("A", 3, selection.selectLevelMonsters(3,monsterName.namesForLevel(3)) );
+// allRooms.push(A);
+// B = new RoomCreator("B", 5, selection.selectLevelMonsters(5,monsterName.namesForLevel(5)) );
+// allRooms.push(B);
+// C = new RoomCreator("C", 2, selection.selectLevelMonsters(2,monsterName.namesForLevel(2)) );
+// allRooms.push(C);
+// D = new RoomCreator("D", 4, selection.selectLevelMonsters(4,monsterName.namesForLevel(4)) );
+// allRooms.push(D);
+// E = new RoomCreator("E", 4, selection.selectLevelMonsters(4,monsterName.namesForLevel(4)) );
+// allRooms.push(E);
+// F = new RoomCreator("F", 3, selection.selectLevelMonsters(3,monsterName.namesForLevel(3)) );
+// allRooms.push(F);
+// G = new RoomCreator("G", 5, selection.selectLevelMonsters(5,monsterName.namesForLevel(5)) );
+// allRooms.push(G);
+// H = new RoomCreator("H", 4, selection.selectLevelMonsters(4,monsterName.namesForLevel(4)) );
+// allRooms.push(H);
+// I = new RoomCreator("I", 2, selection.selectLevelMonsters(2,monsterName.namesForLevel(3)) );
+// allRooms.push(I);
+// J = new RoomCreator("J", 3, selection.selectLevelMonsters(3,monsterName.namesForLevel(3)) );
+// allRooms.push(J);
+
 
 // Room A
 room = new Object();
 
 room.name = "A"
-room.melee = 5
-room.ranged = 2
-room.magic = 1
+room.total = 3;
+room.names = monsterName.namesForLevel(room.total);
+room.monsters = selection.selectLevelMonsters(room.total);
 
 allRooms.push(room);
 
-// Room B
+//Room B
 room = new Object();
 
 room.name = "B"
-room.melee = 0
-room.ranged = 10
-room.magic = 3
+room.total = 5;
+room.names = monsterName.namesForLevel(room.total);
+room.monsters = selection.selectLevelMonsters(room.total);
 
 allRooms.push(room);
 
@@ -45,9 +80,9 @@ allRooms.push(room);
 room = new Object();
 
 room.name = "C"
-room.melee = 4
-room.ranged = 1
-room.magic = 6
+room.total = 2;
+room.names = monsterName.namesForLevel(room.total);
+room.monsters = selection.selectLevelMonsters(room.total);
 
 allRooms.push(room);
 
@@ -55,9 +90,9 @@ allRooms.push(room);
 room = new Object();
 
 room.name = "D"
-room.melee = 6
-room.ranged = 10
-room.magic = 3
+room.total = 4;
+room.names = monsterName.namesForLevel(room.total);
+room.monsters = selection.selectLevelMonsters(room.total);
 
 allRooms.push(room);
 
@@ -65,9 +100,9 @@ allRooms.push(room);
 room = new Object();
 
 room.name = "E"
-room.melee = 4
-room.ranged = 2
-room.magic = 1
+room.total = 4;
+room.names = monsterName.namesForLevel(room.total);
+room.monsters = selection.selectLevelMonsters(room.total);
 
 allRooms.push(room);
 
@@ -75,9 +110,9 @@ allRooms.push(room);
 room = new Object();
 
 room.name = "F"
-room.melee = 7
-room.ranged = 0
-room.magic = 12
+room.total = 3;
+room.names = monsterName.namesForLevel(room.total);
+room.monsters = selection.selectLevelMonsters(room.total);
 
 allRooms.push(room);
 
@@ -85,9 +120,9 @@ allRooms.push(room);
 room = new Object();
 
 room.name = "G"
-room.melee = 8
-room.ranged = 8
-room.magic = 1
+room.total = 5;
+room.names = monsterName.namesForLevel(room.total);
+room.monsters = selection.selectLevelMonsters(room.total);
 
 allRooms.push(room);
 
@@ -95,9 +130,9 @@ allRooms.push(room);
 room = new Object();
 
 room.name = "H"
-room.melee = 4
-room.ranged = 8
-room.magic = 9
+room.total = 4;
+room.names = monsterName.namesForLevel(room.total);
+room.monsters = selection.selectLevelMonsters(room.total);
 
 allRooms.push(room);
 
@@ -105,9 +140,9 @@ allRooms.push(room);
 room = new Object();
 
 room.name = "I"
-room.melee = 3
-room.ranged = 2
-room.magic = 1
+room.total = 2;
+room.names = monsterName.namesForLevel(room.total);
+room.monsters = selection.selectLevelMonsters(room.total);
 
 allRooms.push(room);
 
@@ -115,9 +150,9 @@ allRooms.push(room);
 room = new Object();
 
 room.name = "J"
-room.melee = 8
-room.ranged = 8
-room.magic = 7
+room.total = 3;
+room.names = monsterName.namesForLevel(room.total);
+room.monsters = selection.selectLevelMonsters(room.total);
 
 allRooms.push(room);
 

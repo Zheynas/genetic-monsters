@@ -9,7 +9,7 @@ describe('Room Creation', function(){
     expect(level1.createRooms()).to.equal(10);
   })
   it('Correct number of rooms selected', function(){
-    expect(level1.selectRoomForLevel(4)).to.equal(4);
+    expect(level1.selectRoomForLevel(4).length).to.equal(4);
   })
 
 })

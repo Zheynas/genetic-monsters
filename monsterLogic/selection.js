@@ -1,4 +1,6 @@
 var utility = require('./utility.js');
+var monsterName = require('./names.js');
+
 var exports = module.exports = {};
 
   rouletteSelectionArray = [];
@@ -18,7 +20,6 @@ exports.createRouletteSelectionArray = function(population){
   {
     rouletteSelectionArray.push(rouletteSelectionArray[i]+population[i].fitness)
   }
-
   return rouletteSelectionArray;
 };
 
@@ -50,8 +51,7 @@ exports.selectLevelMonsters = function(numberOfMonsters){
   // Finds monsters
   for(j=0; j<numberOfMonsters; j++)
   {
-    levelMonsterArray.push(population[exports.rouletteChooser()])
-
+    levelMonsterArray.push(population[exports.rouletteChooser()-1])
   }
   return levelMonsterArray;
 }

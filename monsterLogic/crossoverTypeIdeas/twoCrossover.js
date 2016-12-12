@@ -4,8 +4,8 @@
 
 twoPointCrossover = function(parent1, parent2){
 
-  point1 = getRandom(0,8);
-  point2 = getRandom(point1+1,8);
+  point1 = getRandom(0,parent1.type_code.length);
+  point2 = getRandom(point1+1,parent1.type_code.length);
 
   parentOrder = getRandom(0,2);
 

@@ -6,8 +6,6 @@ var selection = require('./monsterLogic/selection.js');
 var statChange = require('./monsterLogic/statChange.js');
 var levelSetup = require('./monsterLogic/levelSetup.js');
 
-
-
 ///////////////////////////////////////
 //                                   //
 //                                   //
@@ -17,20 +15,29 @@ var levelSetup = require('./monsterLogic/levelSetup.js');
 ///////////////////////////////////////
 
 
-initialPopulationSize = 10;
+initialPopulationSize = 50;
 population = [];
 rouletteSelectionArray = [];
 monstersPerLevel = 10;
 levelMonsterArray = [];
-currentLevel = 1;
-numberOfChildrenCreated = 10;
+numberOfChildrenCreated = 100;
 mutantChance = 33; //%
 maxSkillIncreaseAmount = 3; // Randomly spread across stats
+
+lifeExpectancy = 3;
+lengthOfTypeCode = 5;
+
+/******************/
+//     Stats      //
+/******************/
+
 numberOfStats = 3;
 maxStartStat = 3;
 numberOfTypes = 3;
-lifeExpectancy = 3;
-lengthOfTypeCode = 5;
+
+/******************/
+//    Initial     //
+/******************/
 
 
 /******************/
@@ -42,8 +49,7 @@ level1RoomNumber = 3;
 //    Level 2     //
 /******************/
 level2RoomNumber = 5;
-
-
+level2GenerationNumber = 10;
 
 
 // This the fitness function that needs to be altered.
@@ -61,48 +67,13 @@ fitnessFunction = function(monster){
 
 Main = function(){
   population = initialPopulation.createInitialPopulation(initialPopulationSize);
-  //utility.printPopulation();
+//  utility.printPopulation();
 
-
-  // level1.selectRoomForLevel(level1RoomNumber);
-  // utility.printLevelDetails();
-
-// Create name-less initial population
-
-// find room
-
-
-
-
-
-
-  //population = initialPopulation.createInitialPopulation(initialPopulationSize);
-
-  for(z=0;z<2;z++){
 
     levelSetup.playLevel();
-    breeding.createChildren();
-    //utility.printPopulation();
-
-  }
-  //utility.printPopulation();
+    levelSetup.playLevel();
+  //  utility.printPopulation();
 
 };
-
-/*
-Create initial population
-create room array for level
-
-print level number
-
-print room name
-print monsters in room
-print complete
-
-print level Completed
-
-create createChildren
-
-*/
 
 Main();

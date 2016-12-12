@@ -44,34 +44,28 @@ exports.printPopulation = function(){
     }
   };
 
+  // Prints details about the level (monsters and rooms)
   exports.printLevelDetails = function(){
 
+    // Cycle through chosen rooms
     for(i=0;i<level1RoomNumber;i++){
       console.log("Room:" ,levelOneRooms[i].name, "Total monsters: ", levelOneRooms[i].total);
+
+      // Cycles through information in each room
       for(j=0;j<levelOneRooms[i].monsters.length;j++){
         console.log(levelOneRooms[i].monsters[j].health_value,levelOneRooms[i].monsters[j].speed_value,
           levelOneRooms[i].monsters[j].damage_value,"(",levelOneRooms[i].monsters[j].fitness,")",
           "[", levelOneRooms[i].monsters[j].type_code,"]",levelOneRooms[i].names[j]);
-       }
+        }
       }
     };
 
-    exports.printSelectedLevelMonsters = function(){
-      console.log("Monsters selected for the level:");
-      for(x=0;x<levelMonsterArray.length;x++)
+    exports.printAverageFitness = function(){
+      total = 0;
+      for(i=0;i<population.length;i++)
       {
-        console.log(levelMonsterArray[x].health_value,
-          levelMonsterArray[x].speed_value, levelMonsterArray[x].damage_value,
-          levelMonsterArray[x].fitness);
-        }
+        total =  total + population[i].fitness;
       }
-
-      exports.printAverageFitness = function(){
-        total = 0;
-        for(i=0;i<population.length;i++)
-        {
-          total =  total + population[i].fitness;
-        }
-        average = total / population.length;
-        console.log(average);
-      };
+      average = total / population.length;
+      console.log(average);
+    };

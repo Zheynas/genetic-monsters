@@ -54,8 +54,8 @@ exports.crossoverBreeding = function(parent1,parent2,x){
   if(exports.mutateChild(childMonster) == false)
   {
     childMonster.fitness = fitnessFunction(childMonster);
-    childMonster.type = monsterTypes.dominantType(childMonster);
-    population.push(childMonster);
+    monsterTypes.dominantType(childMonster);
+
   }
 
 };
@@ -63,8 +63,9 @@ exports.crossoverBreeding = function(parent1,parent2,x){
 // Chances the codes at random to simulate mutation
 exports.mutateChild = function(childMonster){
 
+
   randomNumber = utility.getRandom(0,99);
-  if(randomNumber< mutantChance)
+  if(randomNumber < mutantChance)
   {
     randomNumber = utility.getRandom(1,7); // 1-6 to produce a 3 digits binary number
     skillAddition = utility.decbin(randomNumber,3);
@@ -86,11 +87,9 @@ exports.mutateChild = function(childMonster){
 
     childMonster.fitness = fitnessFunction(childMonster);
     childMonster.type_code = monsterTypes.mutateTypeCode(childMonster);
-    
-    childMonster.type = monsterTypes.dominantType(childMonster);
 
-    // Adds child to population
-    population.push(childMonster);
+    monsterTypes.dominantType(childMonster);
+
   }
   // Child not selected to mutate
   else{

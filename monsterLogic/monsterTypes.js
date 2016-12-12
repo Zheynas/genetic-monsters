@@ -39,18 +39,6 @@ exports.mutateTypeCode = function(monster){
   return code;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 // Finds out dominant type of a monster
 exports.dominantType=function(monster){
 
@@ -97,5 +85,20 @@ exports.dominantType=function(monster){
   }else{
     type = typeArray[0];
   }
+  monster.type = type;
+
+  switch (type) {
+    case "A":
+    aType.push(monster);
+    break;
+    case "B":
+    bType.push(monster);
+    break;
+    case "C":
+    cType.push(monster);
+    break;
+
+  }
+  population.push(monster);
   return type
-}
+};

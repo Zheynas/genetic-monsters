@@ -37,6 +37,28 @@ exports.setCharAt=function(str,index,chr){
      return str.substr(0,index) + chr + str.substr(index+1);
 }
 
+exports.printTypeArrays = function(){
+
+  console.log("A monsters");
+  for(a=0;a<aType.length;a++){
+    console.log(aType[a].health_value,aType[a].speed_value,
+      aType[a].damage_value,"(",aType[a].fitness,")",
+      "[", aType[a].type_code,"]", aType[a].type);
+  }
+  console.log("B monsters");
+  for(a=0;a<bType.length;a++){
+    console.log(bType[a].health_value,bType[a].speed_value,
+      bType[a].damage_value,"(",bType[a].fitness,")",
+      "[", bType[a].type_code,"]", bType[a].type);
+  }
+  console.log("C monsters");
+  for(a=0;a<cType.length;a++){
+    console.log(cType[a].health_value,cType[a].speed_value,
+      cType[a].damage_value,"(",cType[a].fitness,")",
+      "[", cType[a].type_code,"]", cType[a].type);
+  }
+}
+
 // Prints out all of the monsters
 exports.printPopulation = function(){
 

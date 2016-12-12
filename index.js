@@ -14,15 +14,17 @@ var monsterTypes = require('./monsterLogic/monsterTypes.js');
 //                                   //
 //                                   //
 ///////////////////////////////////////
+aType = [];
+bType = [];
+cType = [];
 
-
-initialPopulationSize = 10;
+initialPopulationSize = 30;
 population = [];
 rouletteSelectionArray = [];
 monstersPerLevel = 10;
 levelMonsterArray = [];
-numberOfChildrenCreated = 10;
-mutantChance = 33; //%
+numberOfChildrenCreated = 50;
+mutantChance = 30; //%
 maxSkillIncreaseAmount = 3; // Randomly spread across stats
 
 lifeExpectancy = 3;
@@ -50,7 +52,7 @@ level1RoomNumber = 3;
 //    Level 2     //
 /******************/
 level2RoomNumber = 5;
-level2GenerationNumber = 10;
+level2GenerationNumber = 20;
 
 
 // This the fitness function that needs to be altered.
@@ -73,7 +75,9 @@ Main = function(){
 
   levelSetup.playLevel();
   levelSetup.playLevel();
-  //utility.printPopulation();
+  // utility.printPopulation();
+  utility.printTypeArrays();
+
 
 
 };

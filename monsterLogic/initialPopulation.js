@@ -37,8 +37,7 @@ exports.createMonster = function(){
   monster.fitness = fitnessFunction(monster);
 
   monster.type_code = monsterTypes.createTypeCode();
-  monster.type = monsterTypes.dominantType(monster);
-  population.push(monster);
+  monsterTypes.dominantType(monster);
 
   return monster;
 };

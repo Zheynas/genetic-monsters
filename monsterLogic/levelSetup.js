@@ -9,22 +9,7 @@ var exports = module.exports = {};
 var currentLevel = 1;
 var generationLevel = 1;
 
-// Simulates several rounds of evolution
-exports.generationSimulator = function(generationNumber){
-  simulationEnd = generationLevel+generationNumber;
-
-  for(z=0; z<simulationEnd; z++)
-  {
-    if(generationLevel>=lifeExpectancy+1){
-      exports.monstersLifeExpired();
-    }
-    breeding.createChildren();
-    generationLevel = generationLevel+1;
-  }
-};
-
-
-// Simulates a level being played - purely for show
+// Simulates a level being played
 exports.playLevel = function(){
   console.log("Level ", currentLevel);
 
@@ -47,7 +32,21 @@ exports.playLevel = function(){
   currentLevel = currentLevel +1;
 };
 
+// Simulates several rounds of evolution
+exports.generationSimulator = function(generationNumber){
+  simulationEnd = generationLevel+generationNumber;
 
+  for(z=0; z<simulationEnd; z++)
+  {
+    if(generationLevel>=lifeExpectancy+1){
+      exports.monstersLifeExpired();
+    }
+    breeding.createChildren();
+    generationLevel = generationLevel+1;
+  }
+};
+
+// Deletes monsters that would have died of old age
 exports.monstersLifeExpired= function(){
   if(generationLevel == lifeExpectancy+1){
     population.splice(0,initialPopulationSize);

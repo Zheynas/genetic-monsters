@@ -44,7 +44,7 @@ exports.createMonster = function(i){
 exports.createTypeCode = function(){
   type = "";
   // Melee / Ranged / Magic
-  choices = ["AAAAA","BBBBB","CCCCC"];
+  choices = ["AAAAAAAAAAAAA","BBBBBBBBBBBBB","CCCCCCCCCCCCC"];
 
   randomNumber = utility.getRandom(0,3); // 0 - 2
   type = choices[randomNumber];

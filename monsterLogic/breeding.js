@@ -85,6 +85,8 @@ exports.mutateChild = function(childMonster){
     }
 
     childMonster.fitness = fitnessFunction(childMonster);
+    childMonster.type_code = monsterTypes.mutateTypeCode(childMonster);
+    
     childMonster.type = monsterTypes.dominantType(childMonster);
 
     // Adds child to population

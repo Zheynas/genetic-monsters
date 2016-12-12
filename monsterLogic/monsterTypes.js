@@ -14,6 +14,43 @@ exports.createTypeCode = function(){
   return type;
 }
 
+exports.mutateTypeCode = function(monster){
+
+  code = monster.type_code
+  randomNumber = utility.getRandom(0,code.length-2) // to make sure there are at least 2 changes
+  while(randomNumber!=code.length){
+
+    mutateChooser = utility.getRandom(0,3) // 0:A, 1:B, 2:C
+    switch (mutateChooser) {
+      case 0:
+      code = utility.setCharAt(code,randomNumber,"A")
+      break;
+      case 1:
+      code = utility.setCharAt(code,randomNumber,"B")
+      break;
+      case 2:
+      code = utility.setCharAt(code,randomNumber,"C")
+      break;
+
+    }
+    randomNumber = utility.getRandom(randomNumber+1,code.length+1)
+
+  }
+  return code;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Finds out dominant type of a monster
 exports.dominantType=function(monster){
 

@@ -5,6 +5,7 @@ var utility = require('./monsterLogic/utility.js');
 var selection = require('./monsterLogic/selection.js');
 var statChange = require('./monsterLogic/statChange.js');
 var levelSetup = require('./monsterLogic/levelSetup.js');
+var monsterTypes = require('./monsterLogic/monsterTypes.js');
 
 ///////////////////////////////////////
 //                                   //
@@ -70,9 +71,10 @@ Main = function(){
   // utility.printPopulation();
 
 
-     levelSetup.playLevel();
-     levelSetup.playLevel();
-  //  utility.printPopulation();
+  levelSetup.playLevel();
+  levelSetup.playLevel();
+  //utility.printPopulation();
+
 
 };
 

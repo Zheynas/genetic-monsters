@@ -31,6 +31,12 @@ exports.shuffle = function(array)
   return array;
 };
 
+// Changes the character of a string at a given index
+exports.setCharAt=function(str,index,chr){
+  if(index > str.length-1) return str;
+     return str.substr(0,index) + chr + str.substr(index+1);
+}
+
 // Prints out all of the monsters
 exports.printPopulation = function(){
 

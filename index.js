@@ -7,6 +7,7 @@ var statChange = require('./monsterLogic/statChange.js');
 var levelSetup = require('./monsterLogic/levelSetup.js');
 
 
+
 ///////////////////////////////////////
 //                                   //
 //                                   //
@@ -16,7 +17,7 @@ var levelSetup = require('./monsterLogic/levelSetup.js');
 ///////////////////////////////////////
 
 
-initialPopulationSize = 10;
+initialPopulationSize = 15;
 population = [];
 rouletteSelectionArray = [];
 monstersPerLevel = 10;
@@ -49,13 +50,13 @@ Main = function(){
   population = initialPopulation.createInitialPopulation(initialPopulationSize);
   utility.printPopulation();
 
-  for(z=0;z<2;z++){
-
-    levelSetup.playLevel();
-    breeding.createChildren();
-    utility.printPopulation();
-
-  }
+  // for(z=0;z<200;z++){
+  //
+  //   levelSetup.playLevel();
+  //   breeding.createChildren();
+  //   utility.printPopulation();
+  //
+  // }
 };
 
 /*

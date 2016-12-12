@@ -29,5 +29,9 @@ describe('Inital population creation', function(){
   it('Type created correctly', function(){
     assert.oneOf(population[0].type_code, ["AAAAA","BBBBB","CCCCC"]);
   })
+  it('Has a name', function(){
+    assert.typeOf(population[0].name, 'string');
+  });
+
 
 })

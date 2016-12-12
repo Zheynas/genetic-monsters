@@ -11,7 +11,7 @@ exports.getRandom = function(min,max){
 exports.decbin = function(dec,length){
   var out = "";
   while(length--)
-    out += (dec >> length ) & 1;
+  out += (dec >> length ) & 1;
   return out;
 };
 
@@ -19,8 +19,8 @@ exports.decbin = function(dec,length){
 exports.shuffle = function(array)
 {
   var i = 0
-    , j = 0
-    , temp = null
+  , j = 0
+  , temp = null
 
   for (i = array.length - 1; i > 0; i -= 1) {
     j = Math.floor(Math.random() * (i + 1))
@@ -41,25 +41,37 @@ exports.printPopulation = function(){
     console.log(population[i].health_value,population[i].speed_value,
       population[i].damage_value,"(",population[i].fitness,")",
       "[", population[i].type_code,"]",population[i].name);
-  }
-};
+    }
+  };
 
-exports.printSelectedLevelMonsters = function(){
-  console.log("Monsters selected for the level:");
-  for(x=0;x<levelMonsterArray.length;x++)
-  {
-    console.log(levelMonsterArray[x].health_value,
-    levelMonsterArray[x].speed_value, levelMonsterArray[x].damage_value,
-    levelMonsterArray[x].fitness);
-  }
-}
+  exports.printLevelDetails = function(){
+    for(i=0;i<level1RoomNumber;i++){
+      console.log("Room:" ,levelOneRooms[i].name, "Total monsters: ", levelOneRooms[i].total);
+      console.log(levelOneRooms[i].monsters.length);
+      for(j=0;j<levelOneRooms[i].monsters.length;j++){
+        console.log(levelOneRooms[i].monsters[j].health_value,levelOneRooms[i].monsters[j].speed_value,
+          levelOneRooms[i].monsters[j].damage_value,"(",levelOneRooms[i].monsters[j].fitness,")",
+          "[", levelOneRooms[i].monsters[j].type_code,"]",levelOneRooms[i].monsters[j].name);
+       }
+      }
+    };
 
-exports.printAverageFitness = function(){
-  total = 0;
-  for(i=0;i<population.length;i++)
-  {
-    total =  total + population[i].fitness;
-  }
-  average = total / population.length;
-  console.log(average);
-};
+    exports.printSelectedLevelMonsters = function(){
+      console.log("Monsters selected for the level:");
+      for(x=0;x<levelMonsterArray.length;x++)
+      {
+        console.log(levelMonsterArray[x].health_value,
+          levelMonsterArray[x].speed_value, levelMonsterArray[x].damage_value,
+          levelMonsterArray[x].fitness);
+        }
+      }
+
+      exports.printAverageFitness = function(){
+        total = 0;
+        for(i=0;i<population.length;i++)
+        {
+          total =  total + population[i].fitness;
+        }
+        average = total / population.length;
+        console.log(average);
+      };

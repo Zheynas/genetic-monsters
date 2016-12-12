@@ -17,13 +17,13 @@ var levelSetup = require('./monsterLogic/levelSetup.js');
 ///////////////////////////////////////
 
 
-initialPopulationSize = 50;
+initialPopulationSize = 10;
 population = [];
 rouletteSelectionArray = [];
 monstersPerLevel = 10;
 levelMonsterArray = [];
 currentLevel = 1;
-numberOfChildrenCreated = 100;
+numberOfChildrenCreated = 10;
 mutantChance = 33; //%
 maxSkillIncreaseAmount = 3; // Randomly spread across stats
 numberOfStats = 3;
@@ -31,6 +31,15 @@ maxStartStat = 3;
 numberOfTypes = 3;
 lifeExpectancy = 3;
 lengthOfTypeCode = 5;
+
+
+/******************/
+//    Level 1     //
+/******************/
+level1RoomNumber = 5;
+
+
+
 
 // This the fitness function that needs to be altered.
 fitnessFunction = function(monster){
@@ -46,18 +55,30 @@ fitnessFunction = function(monster){
 ///////////////////////////////////////
 
 Main = function(){
-
   population = initialPopulation.createInitialPopulation(initialPopulationSize);
   //utility.printPopulation();
 
-  for(z=0;z<1000;z++){
 
-    levelSetup.playLevel();
-    breeding.createChildren();
-    //utility.printPopulation();
+  level1.selectRoomForLevel(level1RoomNumber);
 
-  }
-  utility.printPopulation();
+  utility.printLevelDetails();
+
+
+
+
+
+
+
+  //population = initialPopulation.createInitialPopulation(initialPopulationSize);
+
+  // for(z=0;z<1000;z++){
+  //
+  //   levelSetup.playLevel();
+  //   breeding.createChildren();
+  //   //utility.printPopulation();
+  //
+  // }
+  // utility.printPopulation();
 
 };
 

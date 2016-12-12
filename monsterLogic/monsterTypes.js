@@ -85,6 +85,7 @@ exports.dominantType=function(monster){
   }else{
     type = typeArray[0];
   }
+  
   monster.type = type;
 
   switch (type) {

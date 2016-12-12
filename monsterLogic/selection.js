@@ -1,4 +1,6 @@
 var utility = require('./utility.js');
+var monsterName = require('./names.js');
+
 var exports = module.exports = {};
 
   rouletteSelectionArray = [];

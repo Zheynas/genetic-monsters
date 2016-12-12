@@ -8,7 +8,7 @@ exports.createInitialPopulation = function(){
 
   // Initialize
   population = [];
-  names = monsterName.namesForLevel(initialPopulationSize);
+  // names = monsterName.namesForLevel(initialPopulationSize);
 
   for(i=0;i<initialPopulationSize;i++)
   {
@@ -34,7 +34,7 @@ exports.createMonster = function(i){
   monster.fitness = fitnessFunction(monster);
   monster.type_code = exports.createTypeCode();
 
-  monster.name = names[i];
+  // monster.name = names[i];
 
   population.push(monster);
 

@@ -35,23 +35,24 @@ exports.shuffle = function(array)
 exports.printPopulation = function(){
 
   console.log("Monsters:");
-  console.log("H S D   Fitness       Type        Name");
+  console.log("H S D   Fitness       Type");
   for(i=0; i<population.length; i++)
   {
     console.log(population[i].health_value,population[i].speed_value,
       population[i].damage_value,"(",population[i].fitness,")",
-      "[", population[i].type_code,"]",population[i].name);
+      "[", population[i].type_code,"]");
     }
   };
 
   exports.printLevelDetails = function(){
+
     for(i=0;i<level1RoomNumber;i++){
       console.log("Room:" ,levelOneRooms[i].name, "Total monsters: ", levelOneRooms[i].total);
       console.log(levelOneRooms[i].monsters.length);
       for(j=0;j<levelOneRooms[i].monsters.length;j++){
         console.log(levelOneRooms[i].monsters[j].health_value,levelOneRooms[i].monsters[j].speed_value,
           levelOneRooms[i].monsters[j].damage_value,"(",levelOneRooms[i].monsters[j].fitness,")",
-          "[", levelOneRooms[i].monsters[j].type_code,"]",levelOneRooms[i].monsters[j].name);
+          "[", levelOneRooms[i].monsters[j].type_code,"]",levelOneRooms[i].names[j]);
        }
       }
     };

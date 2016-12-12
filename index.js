@@ -63,6 +63,9 @@ Main = function(){
 
   utility.printLevelDetails();
 
+// Create name-less initial population
+
+// find room
 
 
 

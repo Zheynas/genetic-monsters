@@ -36,11 +36,11 @@ exports.printPopulation = function(){
 
   console.log("Monsters:");
   console.log("H S D   Fitness       Type");
-  for(i=0; i<population.length; i++)
+  for(z=0; z<population.length; z++)
   {
-    console.log(population[i].health_value,population[i].speed_value,
-      population[i].damage_value,"(",population[i].fitness,")",
-      "[", population[i].type_code,"]");
+    console.log(population[z].health_value,population[z].speed_value,
+      population[z].damage_value,"(",population[z].fitness,")",
+      "[", population[z].type_code,"]", population[z].type);
     }
   };
 
@@ -55,7 +55,7 @@ exports.printPopulation = function(){
       for(j=0;j<levelOneRooms[i].monsters.length;j++){
         console.log(levelOneRooms[i].monsters[j].health_value,levelOneRooms[i].monsters[j].speed_value,
           levelOneRooms[i].monsters[j].damage_value,"(",levelOneRooms[i].monsters[j].fitness,")",
-          "[", levelOneRooms[i].monsters[j].type_code,"]",levelOneRooms[i].names[j]);
+          "[", levelOneRooms[i].monsters[j].type_code,"]",levelOneRooms[i].monsters[j].type,levelOneRooms[i].names[j]);
         }
       }
     };

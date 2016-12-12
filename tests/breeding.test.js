@@ -11,7 +11,7 @@ var monster = {
   speed_code:"00000011",
   damage_value: 3,
   damage_code:"00000011",
-  type_code: "AAAAAAAA",
+  type_code: "AAAAAAAAAAAAA",
   dominant_type: "A",
   fitness : 15
 }
@@ -23,7 +23,7 @@ var monster2 = {
   speed_code:"00000001",
   damage_value: 1,
   damage_code:"00000001",
-  type_code: "CCCCCCCC",
+  type_code: "CCCCCCCCCCCCC",
   dominant_type: "C",
   fitness : 15
 }

@@ -2,6 +2,7 @@ var utility = require('./utility.js');
 var selection = require('./selection.js');
 var statChange = require('./statChange.js');
 var monsterName = require('./names.js');
+var monsterTypes = require('./monsterTypes.js');
 
 
 var exports = module.exports = {};
@@ -53,6 +54,7 @@ exports.crossoverBreeding = function(parent1,parent2,x){
   if(exports.mutateChild(childMonster) == false)
   {
     childMonster.fitness = fitnessFunction(childMonster);
+    childMonster.type = monsterTypes.dominantType(childMonster);
     population.push(childMonster);
   }
 
@@ -83,6 +85,7 @@ exports.mutateChild = function(childMonster){
     }
 
     childMonster.fitness = fitnessFunction(childMonster);
+    childMonster.type = monsterTypes.dominantType(childMonster);
 
     // Adds child to population
     population.push(childMonster);

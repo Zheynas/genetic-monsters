@@ -15,12 +15,12 @@ var levelSetup = require('./monsterLogic/levelSetup.js');
 ///////////////////////////////////////
 
 
-initialPopulationSize = 50;
+initialPopulationSize = 10;
 population = [];
 rouletteSelectionArray = [];
 monstersPerLevel = 10;
 levelMonsterArray = [];
-numberOfChildrenCreated = 100;
+numberOfChildrenCreated = 10;
 mutantChance = 33; //%
 maxSkillIncreaseAmount = 3; // Randomly spread across stats
 
@@ -67,11 +67,11 @@ fitnessFunction = function(monster){
 
 Main = function(){
   population = initialPopulation.createInitialPopulation(initialPopulationSize);
-//  utility.printPopulation();
+  // utility.printPopulation();
 
 
-    levelSetup.playLevel();
-    levelSetup.playLevel();
+     levelSetup.playLevel();
+     levelSetup.playLevel();
   //  utility.printPopulation();
 
 };

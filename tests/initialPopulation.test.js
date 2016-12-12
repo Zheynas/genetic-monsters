@@ -26,12 +26,7 @@ describe('Inital population creation', function(){
     assert.oneOf(population[0].speed_code, ["00000001","00000011","00000010"]);
     assert.oneOf(population[0].damage_code, ["00000001","00000011","00000010"]);
   })
-  it('Type created correctly', function(){
-    assert.oneOf(population[0].type_code, ["AAAAA","BBBBB","CCCCC"]);
-  })
-  it('Has a name', function(){
-    assert.typeOf(population[0].name, 'string');
-  });
+  it('Type created correctly')
 
 
 })

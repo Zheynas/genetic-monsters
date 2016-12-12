@@ -93,6 +93,40 @@ exports.mutateChild = function(childMonster){
   }
 };
 
+
+
+// One point crossover
+exports.oneCrossover = function(parent1Value, parent1Code, parent2Value, parent2Code){
+
+  parentOrder = utility.getRandom(0,2); // 0 or 1
+  randomNumber = utility.getRandom(0,4); // 0 - 3  ** this is to do with the length of the binary string
+  splitPoint = parent1Code.length - randomNumber;
+
+  //Parent 1 on the left of the split
+  if(parentOrder == 1){
+    parent1Section = parent1Code.substring(0,splitPoint);
+    parent2Section = parent2Code.substring(splitPoint)
+    childMonsterCode = parent1Section.concat(parent2Section);
+  }
+  // Parent 2 on the left of the split
+  else{
+    parent2Section = parent2Code.substring(0,splitPoint);
+    parent1Section = parent1Code.substring(splitPoint)
+    childMonsterCode = parent2Section.concat(parent1Section);
+  }
+
+  // turns binary into decimal
+  childMonsterValue = parseInt(childMonsterCode,2);
+
+  if(childMonsterValue == 0)
+  {
+    childMonsterValue =1;
+    childMonsterCode = utility.decbin(childMonsterValue,8)
+  }
+
+  return[childMonsterValue, childMonsterCode]
+};
+
 // Two point crossover
 exports.twoCrossover = function(parent1,parent2){
 
@@ -126,35 +160,3 @@ exports.twoCrossover = function(parent1,parent2){
   return childType;
 
 }
-
-// One point crossover
-exports.oneCrossover = function(parent1Value, parent1Code, parent2Value, parent2Code){
-
-  parentOrder = utility.getRandom(0,2); // 0 or 1
-  randomNumber = utility.getRandom(0,4); // 0 - 3  ** this is to do with the length of the binary string
-  splitPoint = parent1Code.length - randomNumber;
-
-  //Parent 1 on the left of the split
-  if(parentOrder == 1){
-    parent1Section = parent1Code.substring(0,splitPoint);
-    parent2Section = parent2Code.substring(splitPoint)
-    childMonsterCode = parent1Section.concat(parent2Section);
-  }
-  // Parent 2 on the left of the split
-  else{
-    parent2Section = parent2Code.substring(0,splitPoint);
-    parent1Section = parent1Code.substring(splitPoint)
-    childMonsterCode = parent2Section.concat(parent1Section);
-  }
-
-  // turns binary into decimal
-  childMonsterValue = parseInt(childMonsterCode,2);
-
-  if(childMonsterValue == 0)
-  {
-    childMonsterValue =1;
-    childMonsterCode = utility.decbin(childMonsterValue,8)
-  }
-
-  return[childMonsterValue, childMonsterCode]
-};

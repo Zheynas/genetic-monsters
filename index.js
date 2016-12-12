@@ -36,7 +36,12 @@ lengthOfTypeCode = 5;
 /******************/
 //    Level 1     //
 /******************/
-level1RoomNumber = 5;
+level1RoomNumber = 3;
+
+/******************/
+//    Level 2     //
+/******************/
+level2RoomNumber = 5;
 
 
 
@@ -59,9 +64,8 @@ Main = function(){
   //utility.printPopulation();
 
 
-  level1.selectRoomForLevel(level1RoomNumber);
-
-  utility.printLevelDetails();
+  // level1.selectRoomForLevel(level1RoomNumber);
+  // utility.printLevelDetails();
 
 // Create name-less initial population
 
@@ -74,14 +78,14 @@ Main = function(){
 
   //population = initialPopulation.createInitialPopulation(initialPopulationSize);
 
-  // for(z=0;z<1000;z++){
-  //
-  //   levelSetup.playLevel();
-  //   breeding.createChildren();
-  //   //utility.printPopulation();
-  //
-  // }
-  // utility.printPopulation();
+  for(z=0;z<2;z++){
+
+    levelSetup.playLevel();
+    breeding.createChildren();
+    //utility.printPopulation();
+
+  }
+  //utility.printPopulation();
 
 };
 

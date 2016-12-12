@@ -1,23 +1,33 @@
 var utility = require('./utility.js');
+var level1 = require('./level1.js');
+var level2 = require('./level2.js');
+
 var exports = module.exports = {};
 
 // Simulates a level being played - purely for show
 exports.playLevel = function(){
   console.log("Level ", currentLevel);
-  //
-  // level1RoomSelection();
-  //
-  // for(i=0; i< level1Rooms.length;i++){
-  //
-  //   console.log("Room: ", level1Rooms[i].name);
-  // }
+
+  switch (currentLevel) {
+    case 1:
+    level1.selectRoomForLevel(level1RoomNumber);
+    utility.printLevelDetails();
+    break;
+
+    case 2:
+    level2.selectRoomForLevel(level2RoomNumber);
+    utility.printLevelDetails();
+    break;
+
+  }
 
   console.log("Level", currentLevel, "Completed");
 
-// if current level = life expectancy - delete initial
+  // if current level = life expectancy - delete initial
   if(currentLevel >= lifeExpectancy+1){
     exports.monstersLifeExpired();
   }
+
   currentLevel = currentLevel +1;
 };
 

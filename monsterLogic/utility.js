@@ -48,7 +48,6 @@ exports.printPopulation = function(){
 
     for(i=0;i<level1RoomNumber;i++){
       console.log("Room:" ,levelOneRooms[i].name, "Total monsters: ", levelOneRooms[i].total);
-      console.log(levelOneRooms[i].monsters.length);
       for(j=0;j<levelOneRooms[i].monsters.length;j++){
         console.log(levelOneRooms[i].monsters[j].health_value,levelOneRooms[i].monsters[j].speed_value,
           levelOneRooms[i].monsters[j].damage_value,"(",levelOneRooms[i].monsters[j].fitness,")",

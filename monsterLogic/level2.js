@@ -4,7 +4,7 @@ var monsterName = require('./names.js');
 
 var exports = module.exports = {};
 
-levelOneRooms=[];
+levelTwoRooms=[];
 allRooms=[];
 
 // randomly selects required number of rooms
@@ -19,18 +19,17 @@ exports.selectRoomForLevel = function(numberOfRooms){
 
 };
 
-// Creates rooms for level 1
+// Creates rooms for level 2
 exports.createRooms = function(){
 
   //Initializes
   allRooms=[];
 
-
   // Room A
   room = new Object();
 
-  room.name = "A1"
-  room.total = 3;
+  room.name = "A2"
+  room.total = 5;
   room.names = monsterName.namesForLevel(room.total);
   room.monsters = selection.selectLevelMonsters(room.total);
 
@@ -39,8 +38,8 @@ exports.createRooms = function(){
   //Room B
   room = new Object();
 
-  room.name = "B1"
-  room.total = 5;
+  room.name = "B2"
+  room.total = 6;
   room.names = monsterName.namesForLevel(room.total);
   room.monsters = selection.selectLevelMonsters(room.total);
 
@@ -49,8 +48,8 @@ exports.createRooms = function(){
   // Room C
   room = new Object();
 
-  room.name = "C1"
-  room.total = 2;
+  room.name = "C2"
+  room.total = 8;
   room.names = monsterName.namesForLevel(room.total);
   room.monsters = selection.selectLevelMonsters(room.total);
 
@@ -59,8 +58,8 @@ exports.createRooms = function(){
   // Room D
   room = new Object();
 
-  room.name = "D1"
-  room.total = 4;
+  room.name = "D2"
+  room.total = 7;
   room.names = monsterName.namesForLevel(room.total);
   room.monsters = selection.selectLevelMonsters(room.total);
 
@@ -69,8 +68,8 @@ exports.createRooms = function(){
   // Room E
   room = new Object();
 
-  room.name = "E1"
-  room.total = 4;
+  room.name = "E2"
+  room.total = 8;
   room.names = monsterName.namesForLevel(room.total);
   room.monsters = selection.selectLevelMonsters(room.total);
 
@@ -79,8 +78,8 @@ exports.createRooms = function(){
   // Room F
   room = new Object();
 
-  room.name = "F1"
-  room.total = 3;
+  room.name = "F2"
+  room.total = 5;
   room.names = monsterName.namesForLevel(room.total);
   room.monsters = selection.selectLevelMonsters(room.total);
 
@@ -89,8 +88,8 @@ exports.createRooms = function(){
   // Room G
   room = new Object();
 
-  room.name = "G1"
-  room.total = 5;
+  room.name = "G2"
+  room.total = 8;
   room.names = monsterName.namesForLevel(room.total);
   room.monsters = selection.selectLevelMonsters(room.total);
 
@@ -99,8 +98,8 @@ exports.createRooms = function(){
   // Room H
   room = new Object();
 
-  room.name = "H1"
-  room.total = 4;
+  room.name = "H2"
+  room.total = 7;
   room.names = monsterName.namesForLevel(room.total);
   room.monsters = selection.selectLevelMonsters(room.total);
 
@@ -109,8 +108,8 @@ exports.createRooms = function(){
   // Room I
   room = new Object();
 
-  room.name = "I1"
-  room.total = 2;
+  room.name = "I2"
+  room.total = 4;
   room.names = monsterName.namesForLevel(room.total);
   room.monsters = selection.selectLevelMonsters(room.total);
 
@@ -119,8 +118,8 @@ exports.createRooms = function(){
   // Room J
   room = new Object();
 
-  room.name = "J1"
-  room.total = 3;
+  room.name = "J2"
+  room.total = 6;
   room.names = monsterName.namesForLevel(room.total);
   room.monsters = selection.selectLevelMonsters(room.total);
 

@@ -3,35 +3,33 @@ var monsterName = require('./names.js');
 
 var exports = module.exports = {};
 
-  rouletteSelectionArray = [];
-  levelMonsterArray = [];
 
 
 // Populates array with cumulative fitness scores.
-exports.createRouletteSelectionArray = function(population){
+exports.createFitnessArray = function(monsterArray){
 
   // Initializes array
-  rouletteSelectionArray = [];
+  monsterFitnessArray = [];
 
-  rouletteSelectionArray.push(0);
-  rouletteSelectionArray.push(population[0].fitness);
+  monsterFitnessArray.push(0);
+  monsterFitnessArray.push(monsterArray[0].fitness);
 
-  for(i=1;i<population.length;i++)
+  for(i=1;i<monsterArray.length;i++)
   {
-    rouletteSelectionArray.push(rouletteSelectionArray[i]+population[i].fitness)
+    monsterFitnessArray.push(monsterFitnessArray[i]+monsterArray[i].fitness)
   }
-  return rouletteSelectionArray;
+  return monsterFitnessArray;
 };
 
 // Returns the position of a chosen monster (using roulette selection)
 // in the population array.
-exports.rouletteChooser = function(){
+exports.rouletteChooser = function(monsterArray){
 
   // Find a random number between 0 and the total of the cumulative fitness scores.
-  randomNumber = utility.getRandom(0,rouletteSelectionArray[rouletteSelectionArray.length-1]);
-  for(i=1;i<rouletteSelectionArray.length; i++)
+  randomNumber = utility.getRandom(0,monsterArray[monsterArray.length-1]);
+  for(i=1;i<monsterArray.length; i++)
   {
-    if(randomNumber < rouletteSelectionArray[i] && randomNumber >= rouletteSelectionArray[i-1])
+    if(randomNumber < monsterArray[i] && randomNumber >= monsterArray[i-1])
     {
       return i;
     }
@@ -39,19 +37,32 @@ exports.rouletteChooser = function(){
 
 };
 
+// takes each type array and does the fitness thang
+exports.createTypeFitnessArray = function(){
+
+  aTypeFitness = exports.createFitnessArray(aType);
+  bTypeFitness = exports.createFitnessArray(bType);
+  cTypeFitness = exports.createFitnessArray(cType);
+
+}
+
 // Adds the appropriate amount of monsters selected using roulette selection
 // into array of monsters for the level.
-exports.selectLevelMonsters = function(numberOfMonsters){
+exports.selectLevelMonsters = function(melee,ranged,magic){
+  meleeArray=[];
+  rangedArray=[];
+  magicArray=[];
 
-  exports.createRouletteSelectionArray(population);
-
-  // Initializes array
-  levelMonsterArray = [];
-
-  // Finds monsters
-  for(j=0; j<numberOfMonsters; j++)
-  {
-    levelMonsterArray.push(population[exports.rouletteChooser()-1])
+  for(j=0;j<melee;j++){
+    meleeArray.push(aType[exports.rouletteChooser(aTypeFitness)-1])
   }
-  return levelMonsterArray;
+  for(j=0;j<ranged;j++){
+    rangedArray.push(bType[exports.rouletteChooser(bTypeFitness)-1])
+  }
+  for(j=0;j<magic;j++){
+    magicArray.push(cType[exports.rouletteChooser(cTypeFitness)-1])
+  }
+
+  return [meleeArray,rangedArray,magicArray]
+
 }

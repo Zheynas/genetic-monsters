@@ -1,5 +1,6 @@
 var utility = require('./utility.js');
 var monsterName = require('./names.js');
+var monsterTypes = require('./monsterTypes.js');
 
 var exports = module.exports = {};
 
@@ -8,18 +9,17 @@ exports.createInitialPopulation = function(){
 
   // Initialize
   population = [];
-  // names = monsterName.namesForLevel(initialPopulationSize);
 
   for(i=0;i<initialPopulationSize;i++)
   {
-    exports.createMonster(i);
+    exports.createMonster();
   }
   return population;
 };
 
 
 // Creates a monster (for initial population)
-exports.createMonster = function(i){
+exports.createMonster = function(){
   var monster = new Object();
 
   monster.health_value = utility.getRandom(1,maxStartStat+1);
@@ -32,22 +32,9 @@ exports.createMonster = function(i){
   monster.damage_code = utility.decbin(monster.damage_value,8);
 
   monster.fitness = fitnessFunction(monster);
-  monster.type_code = exports.createTypeCode();
 
-  // monster.name = names[i];
-
-  population.push(monster);
+  monster.type_code = monsterTypes.createTypeCode();
+  monsterTypes.dominantType(monster);
 
   return monster;
 };
-
-exports.createTypeCode = function(){
-  type = "";
-  // Melee / Ranged / Magic
-  choices = ["AAAAAAAAAAAAA","BBBBBBBBBBBBB","CCCCCCCCCCCCC"];
-
-  randomNumber = utility.getRandom(0,3); // 0 - 2
-  type = choices[randomNumber];
-
-return type;
-}

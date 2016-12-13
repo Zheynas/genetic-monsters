@@ -2,6 +2,7 @@ var utility = require('./utility.js');
 var level1 = require('./level1.js');
 var level2 = require('./level2.js');
 var breeding = require('./breeding.js');
+var monsterTypes = require('./monsterTypes.js');
 
 
 var exports = module.exports = {};
@@ -12,6 +13,8 @@ var generationLevel = 1;
 // Simulates a level being played
 exports.playLevel = function(){
   console.log("Level ", currentLevel);
+  monsterTypes.createTypeArrays();
+
 
   switch (currentLevel) {
 
@@ -55,3 +58,32 @@ exports.monstersLifeExpired= function(){
   }
   return population.length;
 }
+
+
+/*
+Create initial population //
+
+Create type arrays //
+Create type fitness arrays //
+Select rooms //
+Find monsters needed from type fitness //
+Play Level //
+Kill old ones //
+Increase skill of survivers --
+Create population fitness array
+Create baby monsters
+Mutate (if chosen)
+
+Create type arrays
+Create type fitness arrays
+Select rooms
+Find monsters needed from type fitness
+Play Level
+Kill old ones
+Increase skill of survivers
+Create population fitness array
+Create baby monsters
+Mutate (if chosen)
+
+
+ */

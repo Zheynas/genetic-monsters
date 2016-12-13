@@ -2,19 +2,21 @@ var utility = require('./utility.js');
 var selection = require('./selection.js');
 var statChange = require('./statChange.js');
 var monsterName = require('./names.js');
+var monsterTypes = require('./monsterTypes.js');
 
 
 var exports = module.exports = {};
 
 // Selects parents by the roulette selection method.
 exports.createChildren = function(){
-  selection.createRouletteSelectionArray(population);
+
+  populationFitnessArray = selection.createFitnessArray(population);
 
 
   for(x=0;x<numberOfChildrenCreated; x++)
   {
-    parent1 = population[selection.rouletteChooser()-1];
-    parent2 = population[selection.rouletteChooser()-1];
+    parent1 = population[selection.rouletteChooser(populationFitnessArray)-1];
+    parent2 = population[selection.rouletteChooser(populationFitnessArray)-1];
 
     // Breeds the two parents to create a child
     exports.crossoverBreeding(parent1,parent2,x);
@@ -53,7 +55,8 @@ exports.crossoverBreeding = function(parent1,parent2,x){
   if(exports.mutateChild(childMonster) == false)
   {
     childMonster.fitness = fitnessFunction(childMonster);
-    population.push(childMonster);
+    monsterTypes.dominantType(childMonster);
+
   }
 
 };
@@ -61,8 +64,9 @@ exports.crossoverBreeding = function(parent1,parent2,x){
 // Chances the codes at random to simulate mutation
 exports.mutateChild = function(childMonster){
 
+
   randomNumber = utility.getRandom(0,99);
-  if(randomNumber< mutantChance)
+  if(randomNumber < mutantChance)
   {
     randomNumber = utility.getRandom(1,7); // 1-6 to produce a 3 digits binary number
     skillAddition = utility.decbin(randomNumber,3);
@@ -83,9 +87,10 @@ exports.mutateChild = function(childMonster){
     }
 
     childMonster.fitness = fitnessFunction(childMonster);
+    childMonster.type_code = monsterTypes.mutateTypeCode(childMonster);
 
-    // Adds child to population
-    population.push(childMonster);
+    monsterTypes.dominantType(childMonster);
+
   }
   // Child not selected to mutate
   else{

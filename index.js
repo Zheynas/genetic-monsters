@@ -1,5 +1,5 @@
-var level1 = require('./monsterLogic/level1.js');
-var level2 = require('./monsterLogic/level2.js');
+var level1 = require('./monsterLogic/levels/level1.js');
+var level2 = require('./monsterLogic/levels/level2.js');
 var initialPopulation = require('./monsterLogic/initialPopulation.js');
 var breeding = require('./monsterLogic/breeding.js');
 var utility = require('./monsterLogic/utility.js');

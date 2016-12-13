@@ -1,7 +1,7 @@
-var utility = require('./utility.js');
-var selection = require('./selection.js');
-var monsterName = require('./names.js');
-var monsterTypes = require('./monsterTypes.js');
+var utility = require('../utility.js');
+var selection = require('../selection.js');
+var monsterName = require('../names.js');
+var monsterTypes = require('../monsterTypes.js');
 
 var exports = module.exports = {};
 

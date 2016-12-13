@@ -1,6 +1,6 @@
 var utility = require('./utility.js');
-var level1 = require('./level1.js');
-var level2 = require('./level2.js');
+var level1 = require('./levels/level1.js');
+var level2 = require('./levels/level2.js');
 var breeding = require('./breeding.js');
 var monsterTypes = require('./monsterTypes.js');
 

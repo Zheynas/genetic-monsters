@@ -3,6 +3,8 @@ var level1 = require('./levels/level1.js');
 var level2 = require('./levels/level2.js');
 var breeding = require('./breeding.js');
 var monsterTypes = require('./monsterTypes.js');
+var roomSelector = require('./levels/roomSelector.js');
+
 
 
 var exports = module.exports = {};
@@ -13,21 +15,36 @@ var generationLevel = 1;
 // Simulates a level being played
 exports.playLevel = function(){
   console.log("Level ", currentLevel);
-  monsterTypes.createTypeArrays();
-
 
   switch (currentLevel) {
 
     case 1:
-    level1.selectRoomForLevel(level1RoomNumber);
-    utility.printLevelDetails();
+    utility.printLevelDetails(roomSelector.selectRoomForLevel(1,level1RoomNumber));
     exports.generationSimulator(level2GenerationNumber);
     break;
 
     case 2:
-    breeding.createChildren();
-    level2.selectRoomForLevel(level2RoomNumber);
-    utility.printLevelDetails();
+    utility.printLevelDetails(roomSelector.selectRoomForLevel(2,level2RoomNumber));
+    exports.generationSimulator(level3GenerationNumber);
+    break;
+
+    case 3:
+    utility.printLevelDetails(roomSelector.selectRoomForLevel(3,level3RoomNumber));
+    exports.generationSimulator(level4GenerationNumber);
+    break;
+
+    case 4:
+    utility.printLevelDetails(roomSelector.selectRoomForLevel(4,level4RoomNumber));
+    exports.generationSimulator(level5GenerationNumber);
+    break;
+
+    case 5:
+    utility.printLevelDetails(roomSelector.selectRoomForLevel(5,level5RoomNumber));
+    exports.generationSimulator(level6GenerationNumber);
+    break;
+
+    case 6:
+    utility.printLevelDetails(roomSelector.selectRoomForLevel(6,level6RoomNumber));
     break;
 
   }
@@ -37,27 +54,26 @@ exports.playLevel = function(){
 
 // Simulates several rounds of evolution
 exports.generationSimulator = function(generationNumber){
-  simulationEnd = generationLevel+generationNumber;
 
-  for(z=0; z<simulationEnd; z++)
-  {
-    if(generationLevel>=lifeExpectancy+1){
-      exports.monstersLifeExpired();
+  if(currentLevel ==1){
+    for(u=0;u<generationNumber;u++){
+
+      if(u==lifeExpectancy){
+        population.splice(0,initialPopulationSize)
+      }
+      if(u>lifeExpectancy){
+        population.splice(0,numberOfChildrenCreated)
+      }
+      breeding.createChildren();
     }
-    breeding.createChildren();
-    generationLevel = generationLevel+1;
+  }else{
+    for(u=0;u<generationNumber;u++){
+      population.splice(0,numberOfChildrenCreated)
+      breeding.createChildren();
+    }
   }
 };
 
-// Deletes monsters that would have died of old age
-exports.monstersLifeExpired= function(){
-  if(generationLevel == lifeExpectancy+1){
-    population.splice(0,initialPopulationSize);
-  }else{
-    population.splice(0,monstersPerLevel);
-  }
-  return population.length;
-}
 
 
 /*

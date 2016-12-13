@@ -116,5 +116,6 @@ exports.createTypeArrays = function(){
       break;
     }
   }
+
   selection.createTypeFitnessArray();
 };

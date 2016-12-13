@@ -3,23 +3,21 @@ var selection = require('../selection.js');
 var monsterName = require('../names.js');
 var monsterTypes = require('../monsterTypes.js');
 
-
 var exports = module.exports = {};
 
-// Creates rooms for level 1
+// Creates rooms for level 5
 exports.createRooms = function(){
 
   //Initializes
   allRooms=[];
 
-
   // Room A
   room = new Object();
 
-  room.name = "A1"
+  room.name = "A5"
   room.melee = 1;
-  room.ranged = 2;
-  room.magic = 1;
+  room.ranged = 4;
+  room.magic = 3;
   room.total = room.melee + room.ranged + room.magic;
   room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
   room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
@@ -29,10 +27,10 @@ exports.createRooms = function(){
   //Room B
   room = new Object();
 
-  room.name = "B1"
-  room.melee = 3;
-  room.ranged = 2;
-  room.magic = 0;
+  room.name = "B5"
+  room.melee = 4;
+  room.ranged = 4;
+  room.magic = 3;
   room.total = room.melee + room.ranged + room.magic;
   room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
   room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
@@ -42,9 +40,9 @@ exports.createRooms = function(){
   // Room C
   room = new Object();
 
-  room.name = "C1"
-  room.melee = 0;
-  room.ranged = 2;
+  room.name = "C5"
+  room.melee = 1;
+  room.ranged = 5;
   room.magic = 3;
   room.total = room.melee + room.ranged + room.magic;
   room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
@@ -55,10 +53,10 @@ exports.createRooms = function(){
   // Room D
   room = new Object();
 
-  room.name = "D1"
+  room.name = "D5"
   room.melee = 1;
-  room.ranged = 3;
-  room.magic = 2;
+  room.ranged = 4;
+  room.magic = 6;
   room.total = room.melee + room.ranged + room.magic;
   room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
   room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
@@ -68,10 +66,10 @@ exports.createRooms = function(){
   // Room E
   room = new Object();
 
-  room.name = "E1"
+  room.name = "E5"
   room.melee = 2;
-  room.ranged = 2;
-  room.magic = 2;
+  room.ranged = 4;
+  room.magic = 4;
   room.total = room.melee + room.ranged + room.magic;
   room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
   room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
@@ -81,10 +79,10 @@ exports.createRooms = function(){
   // Room F
   room = new Object();
 
-  room.name = "F1"
-  room.melee = 0;
-  room.ranged = 2;
-  room.magic = 1;
+  room.name = "F5"
+  room.melee = 4;
+  room.ranged = 4;
+  room.magic = 0;
   room.total = room.melee + room.ranged + room.magic;
   room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
   room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
@@ -94,9 +92,9 @@ exports.createRooms = function(){
   // Room G
   room = new Object();
 
-  room.name = "G1"
-  room.melee = 4;
-  room.ranged = 2;
+  room.name = "G5"
+  room.melee = 0;
+  room.ranged = 4;
   room.magic = 3;
   room.total = room.melee + room.ranged + room.magic;
   room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
@@ -107,9 +105,9 @@ exports.createRooms = function(){
   // Room H
   room = new Object();
 
-  room.name = "H1"
-  room.melee = 1;
-  room.ranged = 4;
+  room.name = "H5"
+  room.melee = 6;
+  room.ranged = 0;
   room.magic = 3;
   room.total = room.melee + room.ranged + room.magic;
   room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
@@ -120,10 +118,10 @@ exports.createRooms = function(){
   // Room I
   room = new Object();
 
-  room.name = "I1"
-  room.melee = 0;
-  room.ranged = 2;
-  room.magic = 0;
+  room.name = "I5"
+  room.melee = 4;
+  room.ranged = 4;
+  room.magic = 3;
   room.total = room.melee + room.ranged + room.magic;
   room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
   room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
@@ -133,10 +131,10 @@ exports.createRooms = function(){
   // Room J
   room = new Object();
 
-  room.name = "J1"
-  room.melee = 1;
-  room.ranged = 3;
-  room.magic = 2;
+  room.name = "J5"
+  room.melee = 0;
+  room.ranged = 4;
+  room.magic = 6;
   room.total = room.melee + room.ranged + room.magic;
   room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
   room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);

@@ -5,22 +5,6 @@ var monsterTypes = require('../monsterTypes.js');
 
 var exports = module.exports = {};
 
-levelTwoRooms=[];
-allRooms=[];
-
-// randomly selects required number of rooms
-exports.selectRoomForLevel = function(numberOfRooms){
-
-  monsterTypes.createTypeArrays();
-
-  exports.createRooms();
-
-  rooms = utility.shuffle(allRooms);
-  levelTwoRooms  = rooms.slice(0,numberOfRooms);
-
-  return levelTwoRooms;
-};
-
 // Creates rooms for level 2
 exports.createRooms = function(){
 
@@ -157,5 +141,5 @@ exports.createRooms = function(){
 
   allRooms.push(room);
 
-  return allRooms.length;
+  return allRooms;
 };

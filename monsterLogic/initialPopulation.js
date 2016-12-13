@@ -14,6 +14,7 @@ exports.createInitialPopulation = function(){
   {
     exports.createMonster();
   }
+
   return population;
 };
 

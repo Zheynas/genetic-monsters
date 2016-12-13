@@ -1,4 +1,6 @@
 var utility = require('./utility.js');
+var selection = require('./selection.js');
+
 var exports = module.exports = {};
 
 
@@ -85,21 +87,34 @@ exports.dominantType=function(monster){
   }else{
     type = typeArray[0];
   }
-  
+
   monster.type = type;
 
-  switch (type) {
-    case "A":
-    aType.push(monster);
-    break;
-    case "B":
-    bType.push(monster);
-    break;
-    case "C":
-    cType.push(monster);
-    break;
-
-  }
   population.push(monster);
   return type
+};
+
+
+exports.createTypeArrays = function(){
+
+  // Initializes
+  aType = [];
+  bType = [];
+  cType = [];
+
+  for(i=0;i<population.length;i++){
+
+    switch (population[i].type) {
+      case "A":
+      aType.push(population[i]);
+      break;
+      case "B":
+      bType.push(population[i]);
+      break;
+      case "C":
+      cType.push(population[i]);
+      break;
+    }
+  }
+  selection.createTypeFitnessArray();
 };

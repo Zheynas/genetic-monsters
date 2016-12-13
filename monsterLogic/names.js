@@ -666,11 +666,17 @@ namesArray = [
   "Pavel"
 ]
 
-exports.namesForLevel = function(popSize){
+exports.namesForLevel = function(melee,ranged,magic){
+  meleeNames=[];
+  rangeNames=[];
+  magicNames=[];
 
-  names = utility.shuffle(namesArray);
-  levelNames  = names.slice(0,popSize);
 
+  shuffledNames = utility.shuffle(namesArray);
 
-  return levelNames
+  meleeNames = shuffledNames.slice(0,melee);
+  rangeNames = shuffledNames.slice(melee+2,melee+2+ranged);
+  magicNames =shuffledNames.slice(melee+2+ranged+3,melee+2+ranged+3+magic);
+
+  return [meleeNames,rangeNames,magicNames]
 }

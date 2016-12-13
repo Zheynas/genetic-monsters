@@ -9,13 +9,14 @@ var exports = module.exports = {};
 
 // Selects parents by the roulette selection method.
 exports.createChildren = function(){
-  selection.createRouletteSelectionArray(population);
+
+  populationFitnessArray = selection.createFitnessArray(population);
 
 
   for(x=0;x<numberOfChildrenCreated; x++)
   {
-    parent1 = population[selection.rouletteChooser()-1];
-    parent2 = population[selection.rouletteChooser()-1];
+    parent1 = population[selection.rouletteChooser(populationFitnessArray)-1];
+    parent2 = population[selection.rouletteChooser(populationFitnessArray)-1];
 
     // Breeds the two parents to create a child
     exports.crossoverBreeding(parent1,parent2,x);

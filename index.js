@@ -1,4 +1,5 @@
 var level1 = require('./monsterLogic/level1.js');
+var level2 = require('./monsterLogic/level2.js');
 var initialPopulation = require('./monsterLogic/initialPopulation.js');
 var breeding = require('./monsterLogic/breeding.js');
 var utility = require('./monsterLogic/utility.js');
@@ -15,15 +16,18 @@ var monsterTypes = require('./monsterLogic/monsterTypes.js');
 //                                   //
 ///////////////////////////////////////
 aType = [];
+aTypeFitness = [];
 bType = [];
+bTypeFitness = [];
 cType = [];
+cTypeFitness = [];
 
-initialPopulationSize = 30;
+initialPopulationSize = 10;
 population = [];
-rouletteSelectionArray = [];
+populationFitnessArray = [];
 monstersPerLevel = 10;
 levelMonsterArray = [];
-numberOfChildrenCreated = 50;
+numberOfChildrenCreated = 10;
 mutantChance = 30; //%
 maxSkillIncreaseAmount = 3; // Randomly spread across stats
 
@@ -70,15 +74,22 @@ fitnessFunction = function(monster){
 
 Main = function(){
   population = initialPopulation.createInitialPopulation(initialPopulationSize);
-  // utility.printPopulation();
 
+  console.log("Level 1:");
+  level1.selectRoomForLevel(level1RoomNumber);
+  utility.printLevelDetails(levelOneRooms);
+  console.log("Level 1 done");
+  console.log("No old ones to kill off");
 
-  levelSetup.playLevel();
-  levelSetup.playLevel();
-  // utility.printPopulation();
-  utility.printTypeArrays();
+  for(u=0;u<10;u++){
+    breeding.createChildren();
+  }
 
-
+  console.log("Level 2:");
+  level2.selectRoomForLevel(level2RoomNumber);
+  utility.printLevelDetails(levelTwoRooms);
+  console.log("Level 2 done");
+  console.log("No old ones to kill off");
 
 };
 

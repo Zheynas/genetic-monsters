@@ -9,9 +9,6 @@ exports.createInitialPopulation = function(){
 
   // Initialize
   population = [];
-  aType = [];
-  bType = [];
-  cType = [];
 
   for(i=0;i<initialPopulationSize;i++)
   {

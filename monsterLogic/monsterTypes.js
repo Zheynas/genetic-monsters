@@ -94,6 +94,22 @@ exports.dominantType=function(monster){
   return type
 };
 
+exports.checkTypesExist = function(){
+  melee = true; ranged = true; magic = true;
+
+  if(aType.length ==0){
+    melee = false;
+  }
+  if(bType.length ==0){
+    ranged = false;
+  }
+  if(cType.length ==0){
+    magic = false;
+  }
+
+  return [melee,ranged,magic]
+
+}
 
 exports.createTypeArrays = function(){
 

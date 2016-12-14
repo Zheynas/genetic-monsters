@@ -24,7 +24,6 @@ exports.createFitnessArray = function(monsterArray){
 // Returns the position of a chosen monster (using roulette selection)
 // in the population array.
 exports.rouletteChooser = function(monsterArray){
-
   // Find a random number between 0 and the total of the cumulative fitness scores.
   randomNumber = utility.getRandom(0,monsterArray[monsterArray.length-1]);
   for(i=1;i<monsterArray.length; i++)
@@ -40,9 +39,21 @@ exports.rouletteChooser = function(monsterArray){
 // takes each type array and does the fitness thang
 exports.createTypeFitnessArray = function(){
 
-  aTypeFitness = exports.createFitnessArray(aType);
-  bTypeFitness = exports.createFitnessArray(bType);
-  cTypeFitness = exports.createFitnessArray(cType);
+  if(aType.length==0){
+    aTypeFitness = [];
+  }else{
+    aTypeFitness = exports.createFitnessArray(aType);
+  }
+  if(bType.length==0){
+    bTypeFitness = [];
+  }else{
+    bTypeFitness = exports.createFitnessArray(bType);
+  }
+  if(cType.length==0){
+    cTypeFitness = [];
+  }else{
+    cTypeFitness = exports.createFitnessArray(cType);
+  }
 
 }
 

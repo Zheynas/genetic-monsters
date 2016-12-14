@@ -1,7 +1,7 @@
 var initialPopulation = require('./monsterLogic/initialPopulation.js');
 var levelSetup = require('./monsterLogic/levelSetup.js');
 var utility = require('./monsterLogic/utility.js');
-
+var roomSelector = require('./monsterLogic/levels/roomSelector.js');
 
 ///////////////////////////////////////
 //                                   //
@@ -17,12 +17,12 @@ bTypeFitness = [];
 cType = [];
 cTypeFitness = [];
 
-initialPopulationSize = 50;
+initialPopulationSize = 5;
 population = [];
 populationFitnessArray = [];
 monstersPerLevel = 10;
 levelMonsterArray = [];
-numberOfChildrenCreated = 50;
+numberOfChildrenCreated = 5;
 mutantChance = 30; //%
 maxSkillIncreaseAmount = 3; // Randomly spread across stats
 
@@ -77,6 +77,8 @@ fitnessFunction = function(monster){
 
 Main = function(){
   population = initialPopulation.createInitialPopulation(initialPopulationSize);
+  utility.printPopulation();
+  //roomSelector.selectRoomForLevel(1,level1RoomNumber)
 
   for(f=1;f<7;f++){
     levelSetup.playLevel();

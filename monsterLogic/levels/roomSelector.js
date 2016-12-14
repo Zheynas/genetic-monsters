@@ -20,43 +20,36 @@ exports.selectRoomForLevel = function(level,numberOfRooms){
     case 1:
     rooms = utility.shuffle(level1.createRooms());
     selectedRooms = rooms.slice(0,numberOfRooms);
-    console.log(selectedRooms.length);
     return selectedRooms;
     break;
 
     case 2:
     rooms = utility.shuffle(level2.createRooms());
     selectedRooms = rooms.slice(0,numberOfRooms);
-    console.log(selectedRooms.length);
-
     return selectedRooms;
     break;
+
     case 3:
     rooms = utility.shuffle(level3.createRooms());
     selectedRooms = rooms.slice(0,numberOfRooms);
-    console.log(selectedRooms.length);
-
     return selectedRooms;
     break;
+
     case 4:
     rooms = utility.shuffle(level4.createRooms());
     selectedRooms = rooms.slice(0,numberOfRooms);
-    console.log(selectedRooms.length);
-
     return selectedRooms;
     break;
+
     case 5:
     rooms = utility.shuffle(level5.createRooms());
     selectedRooms = rooms.slice(0,numberOfRooms);
-    console.log(selectedRooms.length);
-
     return selectedRooms;
     break;
+
     case 6:
     rooms = utility.shuffle(level6.createRooms());
     selectedRooms = rooms.slice(0,numberOfRooms);
-    console.log(selectedRooms.length);
-
     return selectedRooms;
     break;
 

@@ -155,7 +155,7 @@ exports.createTypeArrays = function(){
       break;
     }
   }
-  utility.printLevelStats();
+  
 
 
   selection.createTypeFitnessArray();

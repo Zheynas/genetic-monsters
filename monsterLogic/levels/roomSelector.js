@@ -20,6 +20,7 @@ exports.selectRoomForLevel = function(level,numberOfRooms){
   monsterTypes.createTypeArrays();
   monsterTypes.createPercentageArray()
   monsterTypes.compareTypeArrays();
+  utility.printLevelStats();
 
   switch (level) {
     case 1:

@@ -21,12 +21,12 @@ cTypeFitness = [];
 currentGen = [];
 lastGenTypePercentage = [0,0,0];
 
-initialPopulationSize = 5;
+initialPopulationSize = 50;
 population = [];
 populationFitnessArray = [];
 monstersPerLevel = 10;
 levelMonsterArray = [];
-numberOfChildrenCreated = 5;
+numberOfChildrenCreated = 50;
 mutantChance = 30; //%
 maxSkillIncreaseAmount = 3; // Randomly spread across stats
 
@@ -68,7 +68,7 @@ level6GenerationNumber = 10;
 
 // This the fitness function that needs to be altered.
 fitnessFunction = function(monster){
-  return 2*monster.health_value + monster.speed_value + 2*monster.damage_value;
+  return monster.health_value*12 + monster.speed_value + 8*monster.damage_value;
 };
 
 ///////////////////////////////////////
@@ -81,7 +81,7 @@ fitnessFunction = function(monster){
 
 Main = function(){
   population = initialPopulation.createInitialPopulation(initialPopulationSize);
-  utility.printPopulation();
+  //utility.printPopulation();
   //roomSelector.selectRoomForLevel(1,level1RoomNumber)
 
   for(f=1;f<7;f++){

@@ -20,7 +20,7 @@ exports.mutateTypeCode = function(monster){
 
   code = monster.type_code
   randomNumber = utility.getRandom(0,code.length-2) // to make sure there are at least 2 changes
-  while(randomNumber!=code.length){
+  while(randomNumber!==code.length){
 
     mutateChooser = utility.getRandom(0,3) // 0:A, 1:B, 2:C
     switch (mutateChooser) {
@@ -111,6 +111,29 @@ exports.checkTypesExist = function(){
 
 }
 
+exports.compareTypeArrays = function(){
+
+// If last generation had a value >0 and the current one has a value of 0
+// Then that type has "died"
+  for(i=0;i<currentGen.length;i++){
+    if(currentGen[i]==0){
+      if(lastGenTypePercentage[i]!==0){
+        console.log("*********************************************** DEAD *******************************");
+      }
+    }
+  }
+
+  lastGenTypePercentage = currentGen;
+}
+
+exports.createPercentageArray = function(){
+  meleePercent = aType.length / population.length;
+  rangedPercent = bType.length / population.length;
+  magicPercent = cType.length / population.length;
+
+  currentGen = [meleePercent,rangedPercent,magicPercent];
+}
+
 exports.createTypeArrays = function(){
 
   // Initializes
@@ -132,6 +155,8 @@ exports.createTypeArrays = function(){
       break;
     }
   }
+  utility.printLevelStats();
+
 
   selection.createTypeFitnessArray();
 };

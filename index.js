@@ -17,6 +17,10 @@ bTypeFitness = [];
 cType = [];
 cTypeFitness = [];
 
+
+currentGen = [];
+lastGenTypePercentage = [0,0,0];
+
 initialPopulationSize = 5;
 population = [];
 populationFitnessArray = [];

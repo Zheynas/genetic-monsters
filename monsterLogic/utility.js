@@ -31,6 +31,13 @@ exports.shuffle = function(array)
   return array;
 };
 
+
+exports.printLevelStats=function(){
+
+    console.log("Total monsters in population: ", population.length,"[",currentGen[0], "/",currentGen[1],"/",currentGen[2],"]");
+
+}
+
 // Changes the character of a string at a given index
 exports.setCharAt=function(str,index,chr){
   if(index > str.length-1) return str;

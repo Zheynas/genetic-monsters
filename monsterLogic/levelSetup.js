@@ -70,10 +70,11 @@ exports.generationSimulator = function(generationNumber){
     for(u=0;u<generationNumber;u++){
       population.splice(0,numberOfChildrenCreated)
       breeding.createChildren();
+
+
     }
   }
 };
-
 
 
 /*

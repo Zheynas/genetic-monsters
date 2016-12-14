@@ -1,5 +1,7 @@
 var initialPopulation = require('./monsterLogic/initialPopulation.js');
 var levelSetup = require('./monsterLogic/levelSetup.js');
+var utility = require('./monsterLogic/utility.js');
+
 
 ///////////////////////////////////////
 //                                   //

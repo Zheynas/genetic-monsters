@@ -3,142 +3,224 @@ var selection = require('../selection.js');
 var monsterName = require('../names.js');
 var monsterTypes = require('../monsterTypes.js');
 
+
 var exports = module.exports = {};
 
-// Creates rooms for level 2
+// types: [melee,ranged,magic,total]
+exports.Room = function(name,types,names,monsters){
+  this.name = name;
+  this.types = types;
+  this.names = names;
+  this.monsters = monsters;
+}
+
+
+// Creates rooms for level 1
 exports.createRooms = function(){
 
   //Initializes
   allRooms=[];
 
-  // Room A
-  room = new Object();
+  /************************/
+  //       All types      //
+  /************************/
 
-  room.name = "A3"
-  room.melee = 1;
-  room.ranged = 4;
-  room.magic = 3;
-  room.total = room.melee + room.ranged + room.magic;
-  room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
-  room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
-
+  melee = 1; ranged = 2; magic = 1;
+  room = new exports.Room("A3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
   allRooms.push(room);
 
-  //Room B
-  room = new Object();
-
-  room.name = "B3"
-  room.melee = 4;
-  room.ranged = 4;
-  room.magic = 3;
-  room.total = room.melee + room.ranged + room.magic;
-  room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
-  room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
-
+  melee = 1; ranged = 3; magic = 2;
+  room = new exports.Room("D3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
   allRooms.push(room);
 
-  // Room C
-  room = new Object();
-
-  room.name = "C3"
-  room.melee = 1;
-  room.ranged = 5;
-  room.magic = 3;
-  room.total = room.melee + room.ranged + room.magic;
-  room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
-  room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
-
+  melee = 2; ranged = 2; magic = 2;
+  room = new exports.Room("E3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
   allRooms.push(room);
 
-  // Room D
-  room = new Object();
-
-  room.name = "D3"
-  room.melee = 1;
-  room.ranged = 4;
-  room.magic = 6;
-  room.total = room.melee + room.ranged + room.magic;
-  room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
-  room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
-
+  melee = 4; ranged = 2; magic = 3;
+  room = new exports.Room("G3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
   allRooms.push(room);
 
-  // Room E
-  room = new Object();
-
-  room.name = "E3"
-  room.melee = 2;
-  room.ranged = 4;
-  room.magic = 4;
-  room.total = room.melee + room.ranged + room.magic;
-  room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
-  room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
-
+  melee = 1; ranged = 4; magic = 3;
+  room = new exports.Room("H3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
   allRooms.push(room);
 
-  // Room F
-  room = new Object();
-
-  room.name = "F3"
-  room.melee = 4;
-  room.ranged = 4;
-  room.magic = 0;
-  room.total = room.melee + room.ranged + room.magic;
-  room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
-  room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
-
+  melee = 1; ranged = 3; magic = 2;
+  room = new exports.Room("J3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
   allRooms.push(room);
 
-  // Room G
-  room = new Object();
+  /************************/
+  //       No Melee       //
+  /************************/
 
-  room.name = "G3"
-  room.melee = 0;
-  room.ranged = 4;
-  room.magic = 3;
-  room.total = room.melee + room.ranged + room.magic;
-  room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
-  room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
-
+  melee = 0; ranged = 2; magic = 3;
+  room = new exports.Room("C3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
   allRooms.push(room);
 
-  // Room H
-  room = new Object();
-
-  room.name = "H3"
-  room.melee = 6;
-  room.ranged = 0;
-  room.magic = 3;
-  room.total = room.melee + room.ranged + room.magic;
-  room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
-  room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
-
+  melee = 0; ranged = 2; magic = 1;
+  room = new exports.Room("F3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
   allRooms.push(room);
 
-  // Room I
-  room = new Object();
-
-  room.name = "I3"
-  room.melee = 4;
-  room.ranged = 4;
-  room.magic = 3;
-  room.total = room.melee + room.ranged + room.magic;
-  room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
-  room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
-
+  melee = 0; ranged = 4; magic = 1;
+  room = new exports.Room("K3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
   allRooms.push(room);
 
-  // Room J
-  room = new Object();
+  melee = 0; ranged = 2; magic = 4;
+  room = new exports.Room("L3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
 
-  room.name = "J3"
-  room.melee = 0;
-  room.ranged = 4;
-  room.magic = 6;
-  room.total = room.melee + room.ranged + room.magic;
-  room.names = monsterName.namesForLevel(room.melee,room.ranged,room.magic);
-  room.monsters = selection.selectLevelMonsters(room.melee,room.ranged,room.magic);
+  melee = 0; ranged = 4; magic = 2;
+  room = new exports.Room("M3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
 
+  melee = 0; ranged = 3; magic = 1;
+  room = new exports.Room("N3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+
+  /************************/
+  //      Only Melee      //
+  /************************/
+
+  melee = 4; ranged = 0; magic = 0;
+  room = new exports.Room("O3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 6; ranged = 0; magic = 0;
+  room = new exports.Room("P3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 3; ranged = 0; magic = 0;
+  room = new exports.Room("Q3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 6; ranged = 0; magic = 0;
+  room = new exports.Room("R3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 3; ranged = 0; magic = 0;
+  room = new exports.Room("S3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 5; ranged = 0; magic = 0;
+  room = new exports.Room("T3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+
+  /************************/
+  //      No Ranged       //
+  /************************/
+
+  melee = 3; ranged = 0; magic = 4;
+  room = new exports.Room("U3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 3; ranged = 0; magic = 1;
+  room = new exports.Room("V3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 4; ranged = 0; magic = 4;
+  room = new exports.Room("W3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 4; ranged = 0; magic = 2;
+  room = new exports.Room("X3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 1; ranged = 0; magic = 3;
+  room = new exports.Room("Y3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 3; ranged = 0; magic = 1;
+  room = new exports.Room("Z3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+
+  /************************/
+  //     Only Ranged      //
+  /************************/
+
+  melee = 0; ranged = 2; magic = 0;
+  room = new exports.Room("I3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 0; ranged = 4; magic = 0;
+  room = new exports.Room("AB3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 0; ranged = 6; magic = 0;
+  room = new exports.Room("AC3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 0; ranged = 4; magic = 0;
+  room = new exports.Room("AD3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 0; ranged = 3; magic = 0;
+  room = new exports.Room("AE3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 0; ranged = 4; magic = 0;
+  room = new exports.Room("AF3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+
+
+  /************************/
+  //       No Magic       //
+  /************************/
+
+  melee = 3; ranged = 2; magic = 0;
+  room = new exports.Room("B3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 1; ranged = 2; magic = 0;
+  room = new exports.Room("AG3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 3; ranged = 4; magic = 0;
+  room = new exports.Room("AH3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 4; ranged = 4; magic = 0;
+  room = new exports.Room("AI3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 2; ranged = 3; magic = 0;
+  room = new exports.Room("AJ3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 3; ranged = 2; magic = 0;
+  room = new exports.Room("AK3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+
+  /************************/
+  //      Only Magic      //
+  /************************/
+
+  melee = 0; ranged = 0; magic = 3;
+  room = new exports.Room("AL3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 0; ranged = 0; magic = 3;
+  room = new exports.Room("AM3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 0; ranged = 0; magic = 3;
+  room = new exports.Room("AN3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 0; ranged = 0; magic = 6;
+  room = new exports.Room("AO3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 0; ranged = 0; magic = 5;
+  room = new exports.Room("AP3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
+  allRooms.push(room);
+
+  melee = 0; ranged = 0; magic = 4;
+  room = new exports.Room("AQ3",[melee,ranged,magic],monsterName.namesForLevel(melee,ranged,magic),selection.selectLevelMonsters(melee,ranged,magic));
   allRooms.push(room);
 
   return allRooms;

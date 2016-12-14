@@ -93,7 +93,7 @@ exports.printTypeArrays = function(){
 
           // Cycle through chosen rooms
           for(i=0;i<rooms.length;i++){
-            console.log("Room:" ,rooms[i].name, "Total monsters: ", rooms[i].total);
+            console.log("Room:" ,rooms[i].name);
             // Cycle through types of monsters
             for(j=0;j<rooms[i].monsters.length;j++)
             {

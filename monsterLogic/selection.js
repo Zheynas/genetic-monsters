@@ -39,41 +39,41 @@ exports.rouletteChooser = function(monsterArray){
 // takes each type array and does the fitness thang
 exports.createTypeFitnessArray = function(){
 
-  if(aType.length==0){
-    aTypeFitness = [];
+  if(meleeType.length==0){
+    meleeTypeFitness = [];
   }else{
-    aTypeFitness = exports.createFitnessArray(aType);
+    meleeTypeFitness = exports.createFitnessArray(meleeType);
   }
-  if(bType.length==0){
-    bTypeFitness = [];
+  if(rangedType.length==0){
+    rangedTypeFitness = [];
   }else{
-    bTypeFitness = exports.createFitnessArray(bType);
+    rangedTypeFitness = exports.createFitnessArray(rangedType);
   }
-  if(cType.length==0){
-    cTypeFitness = [];
+  if(mageType.length==0){
+    mageTypeFitness = [];
   }else{
-    cTypeFitness = exports.createFitnessArray(cType);
+    mageTypeFitness = exports.createFitnessArray(mageType);
   }
 
 }
 
 // Adds the appropriate amount of monsters selected using roulette selection
 // into array of monsters for the level.
-exports.selectLevelMonsters = function(melee,ranged,magic){
+exports.selectLevelMonsters = function(melee,ranged,mage){
   meleeArray=[];
   rangedArray=[];
-  magicArray=[];
+  mageArray=[];
 
   for(j=0;j<melee;j++){
-    meleeArray.push(aType[exports.rouletteChooser(aTypeFitness)-1])
+    meleeArray.push(meleeType[exports.rouletteChooser(meleeTypeFitness)-1])
   }
   for(j=0;j<ranged;j++){
-    rangedArray.push(bType[exports.rouletteChooser(bTypeFitness)-1])
+    rangedArray.push(rangedType[exports.rouletteChooser(rangedTypeFitness)-1])
   }
-  for(j=0;j<magic;j++){
-    magicArray.push(cType[exports.rouletteChooser(cTypeFitness)-1])
+  for(j=0;j<mage;j++){
+    mageArray.push(mageType[exports.rouletteChooser(mageTypeFitness)-1])
   }
 
-  return [meleeArray,rangedArray,magicArray]
+  return [meleeArray,rangedArray,mageArray]
 
 }

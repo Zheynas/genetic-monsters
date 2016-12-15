@@ -10,12 +10,12 @@ var roomSelector = require('./monsterLogic/levels/roomSelector.js');
 //                                   //
 //                                   //
 ///////////////////////////////////////
-aType = [];
-aTypeFitness = [];
-bType = [];
-bTypeFitness = [];
-cType = [];
-cTypeFitness = [];
+meleeType = [];
+meleeTypeFitness = [];
+rangedType = [];
+rangedTypeFitness = [];
+mageType = [];
+mageTypeFitness = [];
 
 
 currentGen = [];

@@ -8,7 +8,7 @@ exports.createTypeCode = function(){
   typeInfo = [];
   type = "";
 
-  // Melee / Ranged / Magic
+  // Melee / Ranged / mage
   choices = ["AAAAAAAAAAAAA","BBBBBBBBBBBBB","CCCCCCCCCCCCC"];
 
   randomNumber = utility.getRandom(0,3); // 0 - 2
@@ -95,19 +95,19 @@ exports.dominantType=function(monster){
 };
 
 exports.checkTypesExist = function(){
-  melee = true; ranged = true; magic = true;
+  melee = true; ranged = true; mage = true;
 
-  if(aType.length ==0){
+  if(meleeType.length ==0){
     melee = false;
   }
-  if(bType.length ==0){
+  if(rangedType.length ==0){
     ranged = false;
   }
-  if(cType.length ==0){
-    magic = false;
+  if(mageType.length ==0){
+    mage = false;
   }
 
-  return [melee,ranged,magic]
+  return [melee,ranged,mage]
 
 }
 
@@ -127,35 +127,35 @@ exports.compareTypeArrays = function(){
 }
 
 exports.createPercentageArray = function(){
-  meleePercent = aType.length / population.length;
-  rangedPercent = bType.length / population.length;
-  magicPercent = cType.length / population.length;
+  meleePercent = meleeType.length / population.length;
+  rangedPercent = rangedType.length / population.length;
+  magePercent = mageType.length / population.length;
 
-  currentGen = [meleePercent,rangedPercent,magicPercent];
+  currentGen = [meleePercent,rangedPercent,magePercent];
 }
 
 exports.createTypeArrays = function(){
 
   // Initializes
-  aType = [];
-  bType = [];
-  cType = [];
+  meleeType = [];
+  rangedType = [];
+  mageType = [];
 
   for(i=0;i<population.length;i++){
 
     switch (population[i].type) {
       case "A":
-      aType.push(population[i]);
+      meleeType.push(population[i]);
       break;
       case "B":
-      bType.push(population[i]);
+      rangedType.push(population[i]);
       break;
       case "C":
-      cType.push(population[i]);
+      mageType.push(population[i]);
       break;
     }
   }
-  
+
 
 
   selection.createTypeFitnessArray();

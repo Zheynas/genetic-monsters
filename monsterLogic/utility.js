@@ -47,38 +47,38 @@ exports.setCharAt=function(str,index,chr){
 exports.printTypeArrays = function(){
 
   console.log("A monsters");
-  for(a=0;a<aType.length;a++){
-    console.log(aType[a].health_value,aType[a].speed_value,
-      aType[a].damage_value,"(",aType[a].fitness,")",
-      "[", aType[a].type_code,"]", aType[a].type);
+  for(a=0;a<meleeType.length;a++){
+    console.log(meleeType[a].health_value,meleeType[a].speed_value,
+      meleeType[a].damage_value,"(",meleeType[a].fitness,")",
+      "[", meleeType[a].type_code,"]", meleeType[a].type);
     }
     console.log("B monsters");
-    for(a=0;a<bType.length;a++){
-      console.log(bType[a].health_value,bType[a].speed_value,
-        bType[a].damage_value,"(",bType[a].fitness,")",
-        "[", bType[a].type_code,"]", bType[a].type);
+    for(a=0;a<rangedType.length;a++){
+      console.log(rangedType[a].health_value,rangedType[a].speed_value,
+        rangedType[a].damage_value,"(",rangedType[a].fitness,")",
+        "[", rangedType[a].type_code,"]", rangedType[a].type);
       }
       console.log("C monsters");
-      for(a=0;a<cType.length;a++){
-        console.log(cType[a].health_value,cType[a].speed_value,
-          cType[a].damage_value,"(",cType[a].fitness,")",
-          "[", cType[a].type_code,"]", cType[a].type);
+      for(a=0;a<mageType.length;a++){
+        console.log(mageType[a].health_value,mageType[a].speed_value,
+          mageType[a].damage_value,"(",mageType[a].fitness,")",
+          "[", mageType[a].type_code,"]", mageType[a].type);
         }
       };
 
       exports.printTypeFitnessArrays = function(){
 
         console.log("A monsters");
-        for(a=0;a<aTypeFitness.length;a++){
-          console.log(aTypeFitness[a]);
+        for(a=0;a<meleeTypeFitness.length;a++){
+          console.log(meleeTypeFitness[a]);
           }
           console.log("B monsters");
-          for(a=0;a<bTypeFitness.length;a++){
-            console.log(bTypeFitness[a]);
+          for(a=0;a<rangedTypeFitness.length;a++){
+            console.log(rangedTypeFitness[a]);
             }
             console.log("C monsters");
-            for(a=0;a<cTypeFitness.length;a++){
-              console.log(cTypeFitness[a]);
+            for(a=0;a<mageTypeFitness.length;a++){
+              console.log(mageTypeFitness[a]);
               }
             };
 

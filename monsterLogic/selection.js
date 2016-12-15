@@ -54,15 +54,27 @@ exports.createTypeFitnessArray = function(){
   }else{
     mageTypeFitness = exports.createFitnessArray(mageType);
   }
+  if(rogueType.length==0){
+    rogueTypeFitness = [];
+  }else{
+    rogueTypeFitness = exports.createFitnessArray(rogueType);
+  }
+  if(warlockType.length==0){
+    warlockTypeFitness = [];
+  }else{
+    warlockTypeFitness = exports.createFitnessArray(warlockType);
+  }
 
 }
 
 // Adds the appropriate amount of monsters selected using roulette selection
 // into array of monsters for the level.
-exports.selectLevelMonsters = function(melee,ranged,mage){
+exports.selectLevelMonsters = function(melee,ranged,mage,rogue,warlock){
   meleeArray=[];
   rangedArray=[];
   mageArray=[];
+  rogueArray = [];
+  warlockArray = [];
 
   for(j=0;j<melee;j++){
     meleeArray.push(meleeType[exports.rouletteChooser(meleeTypeFitness)-1])
@@ -73,7 +85,13 @@ exports.selectLevelMonsters = function(melee,ranged,mage){
   for(j=0;j<mage;j++){
     mageArray.push(mageType[exports.rouletteChooser(mageTypeFitness)-1])
   }
+  for(j=0;j<rogue;j++){
+    mageArray.push(rogueType[exports.rouletteChooser(rogueTypeFitness)-1])
+  }
+  for(j=0;j<warlock;j++){
+    warlockArray.push(warlockType[exports.rouletteChooser(warlockTypeFitness)-1])
+  }
 
-  return [meleeArray,rangedArray,mageArray]
+  return [meleeArray,rangedArray,mageArray,rogueArray,warlockArray]
 
 }

@@ -16,6 +16,10 @@ rangedType = [];
 rangedTypeFitness = [];
 mageType = [];
 mageTypeFitness = [];
+rogueType = [];
+rogueTypeFitness = [];
+warlockType = [];
+warlockTypeFitness = [];
 
 
 currentGen = [];

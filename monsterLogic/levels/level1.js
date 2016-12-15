@@ -7,7 +7,7 @@ var monsterTypes = require('../monsterTypes.js');
 var exports = module.exports = {};
 
 // types: [melee,ranged,mage,total]
-exports.Room = function(name,types,names,monsters){
+exports.Room = function(name,types,names,monsters,rogue,warlock){
   this.name = name;
   this.types = types;
   this.names = names;
@@ -30,7 +30,7 @@ exports.createRooms = function(){
   if(avaliableTypes[0] == true && avaliableTypes[1] == true && avaliableTypes[2] == true){
 
     melee = 1; ranged = 2; mage = 1;
-    room = new exports.Room("A1",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+    room = new exports.Room("A1",[melee,ranged,mage,rouge,warlock],monsterName.namesForLevel(melee,ranged,mage,rouge,warlock),selection.selectLevelMonsters(melee,ranged,mage,rouge,warlock));
     allRooms.push(room);
 
     melee = 1; ranged = 3; mage = 2;

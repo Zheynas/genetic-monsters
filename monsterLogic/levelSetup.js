@@ -4,7 +4,7 @@ var level2 = require('./levels/level2.js');
 var breeding = require('./breeding.js');
 var monsterTypes = require('./monsterTypes.js');
 var roomSelector = require('./levels/roomSelector.js');
-var optionSelection = require('./optionSelection.js');
+var optionSelection = require('./levelDetails/optionSelection.js');
 
 
 
@@ -24,23 +24,23 @@ exports.playLevel = function(){
     break;
 
     case 2:
-    optionSelection.options("MMF",2,level2RoomNumber,level2GenerationNumber);
+    optionSelection.options("normal",2,level2RoomNumber,level2GenerationNumber);
     break;
 
     case 3:
-    optionSelection.options("normal");
+    optionSelection.options("MMF",3,level3RoomNumber,level3GenerationNumber);
     break;
 
     case 4:
-    optionSelection.options("normal");
+    optionSelection.options("normal",4,level4RoomNumber,level4GenerationNumber);
     break;
 
     case 5:
-    optionSelection.options("normal");
+    optionSelection.options("normal",5,level5RoomNumber,level5GenerationNumber);
     break;
 
     case 6:
-    optionSelection.options("normal");
+    optionSelection.options("normal",6,level6RoomNumber,level6GenerationNumber);
     break;
 
   }

@@ -9,34 +9,12 @@ var exports = module.exports = {};
 
 exports.setup = function(level,room,generation){
 
-  exports.generationSimulator(generation);
-  utility.printLevelDetails(roomSelector.selectRoomForLevel(level,room));
+  breedingChoice = "threeParentBreeding";
 
 }
 
-// Simulates several rounds of evolution
-exports.generationSimulator = function(generationNumber){
-
-  if(currentLevel ==1){
-    for(u=0;u<generationNumber;u++){
-
-      if(u==lifeExpectancy){
-        population.splice(0,initialPopulationSize)
-      }
-      if(u>lifeExpectancy){
-        population.splice(0,numberOfChildrenCreated)
-      }
-      exports.createThreeParentChildren();
-    }
-  }else{
-    for(u=0;u<generationNumber;u++){
-      population.splice(0,numberOfChildrenCreated)
-      exports.createThreeParentChildren();
-    }
-  }
-};
-
 exports.createThreeParentChildren = function(){
+  console.log("THREE PARENTS");
 
   populationFitnessArray = selection.createFitnessArray(population);
 

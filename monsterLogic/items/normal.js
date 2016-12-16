@@ -1,8 +1,7 @@
 var utility = require('../utility.js');
 var breeding = require('../breeding.js');
 var roomSelector = require('../levels/roomSelector.js');
-
-
+var breedingSelection = require('../levelDetails/breedingSelection.js');
 
 var exports = module.exports = {};
 
@@ -24,12 +23,12 @@ exports.generationSimulator = function(generationNumber){
       if(u>lifeExpectancy){
         population.splice(0,numberOfChildrenCreated)
       }
-      breeding.createChildren();
+      breedingSelection.breedingType();
     }
   }else{
     for(u=0;u<generationNumber;u++){
       population.splice(0,numberOfChildrenCreated)
-      breeding.createChildren();
+      breedingSelection.breedingType();
     }
   }
 };

@@ -2,7 +2,8 @@ var initialPopulation = require('./monsterLogic/initialPopulation.js');
 var levelSetup = require('./monsterLogic/levelSetup.js');
 var utility = require('./monsterLogic/utility.js');
 var roomSelector = require('./monsterLogic/levels/roomSelector.js');
-var monsterTypes = require('./monsterLogic//monsterTypes.js');
+var monsterTypes = require('./monsterLogic/monsterTypes.js');
+var breeding = require('./monsterLogic/breeding.js');
 
 
 ///////////////////////////////////////
@@ -25,16 +26,18 @@ warlockTypeFitness = [];
 
 deadTypes = [];
 
+breedingChoice = "twoParentBreeding";
+
 
 currentGen = [];
 lastGenTypePercentage = [0,0,0,0,0];
 
-initialPopulationSize = 10;
+initialPopulationSize = 50;
 population = [];
 populationFitnessArray = [];
 monstersPerLevel = 10;
 levelMonsterArray = [];
-numberOfChildrenCreated = 10;
+numberOfChildrenCreated = 50;
 mutantChance = 30; //%
 maxSkillIncreaseAmount = 3; // Randomly spread across stats
 
@@ -58,7 +61,7 @@ numberOfTypes = 3;
 //         Levels          //
 /***************************/
 level1RoomNumber = 3;
-level1GenerationNumber = 10;
+level1GenerationNumber = 0;
 
 level2RoomNumber = 2;
 level2GenerationNumber = 10;
@@ -92,7 +95,7 @@ Main = function(){
   population = initialPopulation.createInitialPopulation(initialPopulationSize);
   //utility.printPopulation();
 
-  for(f=1;f<3;f++){
+  for(f=1;f<7;f++){
     levelSetup.playLevel();
   }
 

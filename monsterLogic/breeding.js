@@ -9,6 +9,8 @@ var exports = module.exports = {};
 
 // Selects parents by the roulette selection method.
 exports.createChildren = function(){
+  console.log("TWO PARENTS");
+
 
   populationFitnessArray = selection.createFitnessArray(population);
 

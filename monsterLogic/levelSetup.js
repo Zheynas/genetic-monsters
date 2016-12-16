@@ -13,8 +13,28 @@ var exports = module.exports = {};
 var currentLevel = 1;
 var generationLevel = 1;
 
+
 // Simulates a level being played
 exports.playLevel = function(){
+
+  level1RoomNumber = 3;
+  level1GenerationNumber = 0;
+
+  level2RoomNumber = 2;
+  level2GenerationNumber = 10;
+
+  level3RoomNumber = 3;
+  level3GenerationNumber = 10;
+
+  level4RoomNumber = 4;
+  level4GenerationNumber = 10;
+
+  level5RoomNumber = 3;
+  level5GenerationNumber = 10;
+
+  level6RoomNumber = 2;
+  level6GenerationNumber = 10;
+
   console.log("Level ", currentLevel);
 
   switch (currentLevel) {
@@ -24,7 +44,7 @@ exports.playLevel = function(){
     break;
 
     case 2:
-    optionSelection.options("normal",2,level2RoomNumber,level2GenerationNumber);
+    optionSelection.options("healthUp",2,level2RoomNumber,level2GenerationNumber);
     break;
 
     case 3:

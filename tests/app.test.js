@@ -52,7 +52,6 @@ currentLevel=1;
 
 numberOfStats = 3;
 maxStartStat = 3;
-numberOfTypes = 3;
 
 /******************/
 //    Initial     //

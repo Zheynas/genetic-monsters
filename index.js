@@ -50,33 +50,6 @@ currentLevel=1;
 
 numberOfStats = 3;
 maxStartStat = 3;
-numberOfTypes = 3;
-
-/******************/
-//    Initial     //
-/******************/
-
-
-/***************************/
-//         Levels          //
-/***************************/
-level1RoomNumber = 3;
-level1GenerationNumber = 0;
-
-level2RoomNumber = 2;
-level2GenerationNumber = 10;
-
-level3RoomNumber = 3;
-level3GenerationNumber = 10;
-
-level4RoomNumber = 4;
-level4GenerationNumber = 10;
-
-level5RoomNumber = 3;
-level5GenerationNumber = 10;
-
-level6RoomNumber = 2;
-level6GenerationNumber = 10;
 
 // This the fitness function that needs to be altered.
 fitnessFunction = function(monster){

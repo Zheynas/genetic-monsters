@@ -663,7 +663,9 @@ namesArray = [
   "Nikolai",
   "Gleb",
   "Timur",
-  "Pavel"
+  "Pavel",
+  "Leon",
+  "Nut"
 ]
 
 exports.namesForLevel = function(melee, ranged, mage, rogue, warlock){

@@ -8,6 +8,7 @@ var exports = module.exports = {};
 // Populates array with cumulative fitness scores.
 exports.createFitnessArray = function(monsterArray){
 
+
   // Initializes array
   monsterFitnessArray = [];
 

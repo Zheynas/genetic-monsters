@@ -19,37 +19,30 @@ exports.createChildren = function(){
     parent2 = population[selection.rouletteChooser(populationFitnessArray)-1];
 
     // Breeds the two parents to create a child
-    exports.crossoverBreeding(parent1,parent2,x);
+    exports.crossoverBreeding(parent1,parent2);
   }
 };
 
 // Takes two parents and creates a child using crossover breeding.
-exports.crossoverBreeding = function(parent1,parent2,x){
-
+exports.crossoverBreeding = function(parent1,parent2){
   var childMonster = new Object();
 
-  childHealth = exports.oneCrossover(
-    parent1.health_value, parent1.health_code,
-    parent2.health_value, parent2.health_code);
+  childHealth = exports.oneCrossover(parent1.health_code,parent2.health_code);
 
-  childMonster.health_value = childHealth[0];
-  childMonster.health_code = childHealth[1];
+  childMonster.health_code = childHealth;
+  childMonster.health_value = exports.findValue(childHealth);
 
-  childSpeed = exports.oneCrossover(
-    parent1.speed_value, parent1.speed_code,
-    parent2.speed_value, parent2.speed_code);
+  childSpeed = exports.oneCrossover(parent1.speed_code,parent2.speed_code);
 
-  childMonster.speed_value = childSpeed[0];
-  childMonster.speed_code = childSpeed[1];
+  childMonster.speed_code = childSpeed;
+  childMonster.speed_value = exports.findValue(childSpeed);
 
-  childDamage = exports.oneCrossover(
-    parent1.damage_value, parent1.damage_code,
-    parent2.damage_value, parent2.damage_code);
+  childDamage = exports.oneCrossover(parent1.damage_code,parent2.damage_code);
 
-  childMonster.damage_value = childDamage[0];
-  childMonster.damage_code = childDamage[1];
+  childMonster.damage_code = childDamage;
+  childMonster.damage_value = exports.findValue(childDamage);
 
-  childMonster.type_code = exports.twoCrossover(parent1,parent2);
+  childMonster.type_code = exports.twoCrossover(parent1.type_code,parent2.type_code);
 
   //Checks if child will mutate
   if(exports.mutateChild(childMonster) == false)
@@ -98,10 +91,24 @@ exports.mutateChild = function(childMonster){
   }
 };
 
+exports.findValue = function(code){
+
+  childValue = parseInt(code,2);
+
+  if(childValue == 0)
+  {
+    childValue =1;
+    code = utility.decbin(childValue,8)
+  }
+
+  return childValue;
+
+}
+
 
 
 // One point crossover
-exports.oneCrossover = function(parent1Value, parent1Code, parent2Value, parent2Code){
+exports.oneCrossover = function(parent1Code, parent2Code){
 
   parentOrder = utility.getRandom(0,2); // 0 or 1
   randomNumber = utility.getRandom(0,4); // 0 - 3  ** this is to do with the length of the binary string
@@ -120,32 +127,24 @@ exports.oneCrossover = function(parent1Value, parent1Code, parent2Value, parent2
     childMonsterCode = parent2Section.concat(parent1Section);
   }
 
-  // turns binary into decimal
-  childMonsterValue = parseInt(childMonsterCode,2);
 
-  if(childMonsterValue == 0)
-  {
-    childMonsterValue =1;
-    childMonsterCode = utility.decbin(childMonsterValue,8)
-  }
-
-  return[childMonsterValue, childMonsterCode]
+  return childMonsterCode
 };
 
 // Two point crossover
-exports.twoCrossover = function(parent1,parent2){
+exports.twoCrossover = function(parent1Code,parent2Code){
 
-  point1 = utility.getRandom(0,parent1.type_code.length);
-  point2 = utility.getRandom(point1+1,parent1.type_code.length);
+  point1 = utility.getRandom(0,parent1Code.length);
+  point2 = utility.getRandom(point1+1,parent1Code.length);
 
   parentOrder = utility.getRandom(0,2);
 
   switch (parentOrder) {
     case 0:
 
-    parent1Section1 = parent1.type_code.substring(0,point1);
-    parent1Section2 = parent1.type_code.substring(point2);
-    parent2Section = parent2.type_code.substring(point1,point2);
+    parent1Section1 = parent1Code.substring(0,point1);
+    parent1Section2 = parent1Code.substring(point2);
+    parent2Section = parent2Code.substring(point1,point2);
 
     childType = parent1Section1.concat(parent2Section,parent1Section2);
 
@@ -153,12 +152,11 @@ exports.twoCrossover = function(parent1,parent2){
 
     case 1:
 
-    parent2Section1 = parent2.type_code.substring(0,point1);
-    parent2Section2 = parent2.type_code.substring(point2);
-    parent1Section = parent1.type_code.substring(point1,point2);
+    parent2Section1 = parent2Code.substring(0,point1);
+    parent2Section2 = parent2Code.substring(point2);
+    parent1Section = parent1Code.substring(point1,point2);
 
     childType = parent2Section1.concat(parent1Section,parent2Section2);
-
 
       break;
   }

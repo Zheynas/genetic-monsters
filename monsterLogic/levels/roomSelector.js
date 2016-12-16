@@ -10,7 +10,6 @@ var utility = require('../utility.js');
 var exports = module.exports = {};
 
 exports.selectRoomForLevel = function(level,numberOfRooms){
-
   monsterTypes.createTypeArrays();
   monsterTypes.createPercentageArray()
   monsterTypes.compareTypeArrays();

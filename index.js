@@ -29,12 +29,12 @@ deadTypes = [];
 currentGen = [];
 lastGenTypePercentage = [0,0,0,0,0];
 
-initialPopulationSize = 50;
+initialPopulationSize = 10;
 population = [];
 populationFitnessArray = [];
 monstersPerLevel = 10;
 levelMonsterArray = [];
-numberOfChildrenCreated = 50;
+numberOfChildrenCreated = 10;
 mutantChance = 30; //%
 maxSkillIncreaseAmount = 3; // Randomly spread across stats
 
@@ -55,9 +55,10 @@ numberOfTypes = 3;
 
 
 /***************************/
-//    Level room numbers   //
+//         Levels          //
 /***************************/
 level1RoomNumber = 3;
+level1GenerationNumber = 10;
 
 level2RoomNumber = 2;
 level2GenerationNumber = 10;
@@ -65,7 +66,7 @@ level2GenerationNumber = 10;
 level3RoomNumber = 3;
 level3GenerationNumber = 10;
 
-level4RoomNumber = 1;
+level4RoomNumber = 4;
 level4GenerationNumber = 10;
 
 level5RoomNumber = 3;
@@ -89,8 +90,9 @@ fitnessFunction = function(monster){
 
 Main = function(){
   population = initialPopulation.createInitialPopulation(initialPopulationSize);
+  //utility.printPopulation();
 
-  for(f=1;f<7;f++){
+  for(f=1;f<3;f++){
     levelSetup.playLevel();
   }
 

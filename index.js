@@ -2,6 +2,8 @@ var initialPopulation = require('./monsterLogic/initialPopulation.js');
 var levelSetup = require('./monsterLogic/levelSetup.js');
 var utility = require('./monsterLogic/utility.js');
 var roomSelector = require('./monsterLogic/levels/roomSelector.js');
+var monsterTypes = require('./monsterLogic//monsterTypes.js');
+
 
 ///////////////////////////////////////
 //                                   //
@@ -16,10 +18,16 @@ rangedType = [];
 rangedTypeFitness = [];
 mageType = [];
 mageTypeFitness = [];
+rogueType = [];
+rogueTypeFitness = [];
+warlockType = [];
+warlockTypeFitness = [];
+
+deadTypes = [];
 
 
 currentGen = [];
-lastGenTypePercentage = [0,0,0];
+lastGenTypePercentage = [0,0,0,0,0];
 
 initialPopulationSize = 50;
 population = [];
@@ -81,8 +89,6 @@ fitnessFunction = function(monster){
 
 Main = function(){
   population = initialPopulation.createInitialPopulation(initialPopulationSize);
-  //utility.printPopulation();
-  //roomSelector.selectRoomForLevel(1,level1RoomNumber)
 
   for(f=1;f<7;f++){
     levelSetup.playLevel();

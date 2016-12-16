@@ -34,7 +34,7 @@ exports.shuffle = function(array)
 
 exports.printLevelStats=function(){
 
-    console.log("Total monsters in population: ", population.length,"[",currentGen[0], "/",currentGen[1],"/",currentGen[2],"]");
+    console.log("Total monsters in population: ", population.length,"[",currentGen[0], "/",currentGen[1],"/",currentGen[2],"/",currentGen[3],"/",currentGen[4],"]");
 
 }
 
@@ -46,24 +46,36 @@ exports.setCharAt=function(str,index,chr){
 
 exports.printTypeArrays = function(){
 
-  console.log("A monsters");
+  console.log("Melee monsters");
   for(a=0;a<meleeType.length;a++){
     console.log(meleeType[a].health_value,meleeType[a].speed_value,
       meleeType[a].damage_value,"(",meleeType[a].fitness,")",
       "[", meleeType[a].type_code,"]", meleeType[a].type);
     }
-    console.log("B monsters");
+    console.log("Ranged monsters");
     for(a=0;a<rangedType.length;a++){
       console.log(rangedType[a].health_value,rangedType[a].speed_value,
         rangedType[a].damage_value,"(",rangedType[a].fitness,")",
         "[", rangedType[a].type_code,"]", rangedType[a].type);
       }
-      console.log("C monsters");
+      console.log("Mage monsters");
       for(a=0;a<mageType.length;a++){
         console.log(mageType[a].health_value,mageType[a].speed_value,
           mageType[a].damage_value,"(",mageType[a].fitness,")",
           "[", mageType[a].type_code,"]", mageType[a].type);
         }
+        console.log("Rogue monsters");
+        for(a=0;a<rogueType.length;a++){
+          console.log(rogueType[a].health_value,rogueType[a].speed_value,
+            rogueType[a].damage_value,"(",rogueType[a].fitness,")",
+            "[", rogueType[a].type_code,"]", rogueType[a].type);
+          }
+          console.log("Warlock monsters");
+          for(a=0;a<warlockType.length;a++){
+            console.log(warlockType[a].health_value,warlockType[a].speed_value,
+              warlockType[a].damage_value,"(",warlockType[a].fitness,")",
+              "[", warlockType[a].type_code,"]", warlockType[a].type);
+            }
       };
 
       exports.printTypeFitnessArrays = function(){

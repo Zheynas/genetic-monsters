@@ -14,8 +14,6 @@ exports.setup = function(level,room,generation){
 }
 
 exports.createThreeParentChildren = function(){
-  console.log("THREE PARENTS");
-
   populationFitnessArray = selection.createFitnessArray(population);
 
 

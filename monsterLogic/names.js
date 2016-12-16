@@ -666,17 +666,20 @@ namesArray = [
   "Pavel"
 ]
 
-exports.namesForLevel = function(melee,ranged,mage){
+exports.namesForLevel = function(melee, ranged, mage, rogue, warlock){
   meleeNames=[];
   rangeNames=[];
   mageNames=[];
+  rogueNames = [];
+  warlockNames = [];
 
 
   shuffledNames = utility.shuffle(namesArray);
-
   meleeNames = shuffledNames.slice(0,melee);
-  rangeNames = shuffledNames.slice(melee+2,melee+2+ranged);
-  mageNames =shuffledNames.slice(melee+2+ranged+3,melee+2+ranged+3+mage);
+  rangeNames = shuffledNames.slice(melee+1,melee+ranged+2);
+  mageNames =shuffledNames.slice(melee+ranged+3,melee+ranged+mage+4);
+  rogueNames =shuffledNames.slice(melee+ranged+mage+5,melee+ranged+mage+rogue+6);
+  warlockNames =shuffledNames.slice(melee+ranged+mage+rogue+7,melee+ranged+mage+rogue+warlock+8);
 
-  return [meleeNames,rangeNames,mageNames]
+  return [meleeNames,rangeNames,mageNames,rogueNames,warlockNames]
 }

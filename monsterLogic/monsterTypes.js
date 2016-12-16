@@ -11,7 +11,7 @@ exports.createTypeCode = function(){
   // Melee / Ranged / mage / rogue / warlock
   choices = ["AAAAAAAAAAAAAAAAAAAAA","BBBBBBBBBBBBBBBBBBBBB","CCCCCCCCCCCCCCCCCCCCC","DDDDDDDDDDDDDDDDDDDDD","EEEEEEEEEEEEEEEEEEEEE"];
 
-  randomNumber = utility.getRandom(0,3); // 0 - 2
+  randomNumber = utility.getRandom(0,5); // 0 - 4
   type = choices[randomNumber];
   return type;
 }
@@ -99,9 +99,12 @@ exports.dominantType=function(monster){
     typeArray.push("E")
   }
 
+
   if(typeArray.length>1){
-    randomNumber= utility.getRandom(0,typeArray.length);
+    randomNumber= utility.getRandom(0,typeArray.length+1);
     type = typeArray[randomNumber];
+  }else{
+    type = monster.type_code.charAt(0)
   }
 
   monster.type = type;
@@ -111,36 +114,62 @@ exports.dominantType=function(monster){
 };
 
 exports.checkTypesExist = function(){
-  melee = true; ranged = true; mage = true;
+  melee = true; ranged = true; mage = true; rogue = true; warlock = true;
 
-  if(meleeType.length ==0){
+  if(meleeType.length ==0 || deadTypes[0]=="A"){
     melee = false;
   }
-  if(rangedType.length ==0){
+  if(rangedType.length ==0|| deadTypes[0]=="B"){
     ranged = false;
   }
-  if(mageType.length ==0){
+  if(mageType.length ==0|| deadTypes[0]=="C"){
     mage = false;
   }
-  if(rogueType.length ==0){
-    mage = false;
+  if(rogueType.length ==0|| deadTypes[0]=="D"){
+    rogue = false;
   }
-  if(warlockType.length ==0){
-    mage = false;
+  if(warlockType.length ==0|| deadTypes[0]=="E"){
+    warlock = false;
   }
 
-  return [melee,ranged,mage]
+
+
+  return [melee,ranged,mage,rogue,warlock];
 
 }
 
 exports.compareTypeArrays = function(){
 
-// If last generation had a value >0 and the current one has a value of 0
-// Then that type has "died"
+  // If last generation had a value >0 and the current one has a value of 0
+  // Then that type has "died"
   for(i=0;i<currentGen.length;i++){
     if(currentGen[i]==0){
       if(lastGenTypePercentage[i]!==0){
         console.log("*********************************************** DEAD *******************************");
+        if(deadTypes.length==0){
+          switch (i) {
+            case 0:
+            deadTypes.push("A");
+            console.log("Melee died out");
+            break;
+            case 1:
+            deadTypes.push("B");
+            console.log("Ranged died out");
+            break;
+            case 2:
+            deadTypes.push("C");
+            console.log("Mage died out");
+            break;
+            case 3:
+            deadTypes.push("D");
+            console.log("Rogue died out");
+            break;
+            case 4:
+            deadTypes.push("E");
+            console.log("Warlock died out");
+            break;
+          }
+        }
       }
     }
   }

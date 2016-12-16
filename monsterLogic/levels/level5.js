@@ -7,7 +7,7 @@ var monsterTypes = require('../monsterTypes.js');
 var exports = module.exports = {};
 
 // types: [melee,ranged,mage,total]
-exports.Room = function(name,types,names,monsters){
+exports.Room = function(name,types,names,monsters,rogue,warlock){
   this.name = name;
   this.types = types;
   this.names = names;
@@ -20,216 +20,439 @@ exports.createRooms = function(){
 
   //Initializes
   allRooms=[];
+
   avaliableTypes = monsterTypes.checkTypesExist();
+
   /************************/
   //       All types      //
   /************************/
-  if(avaliableTypes[0] == true && avaliableTypes[1] == true && avaliableTypes[2] == true){
 
-    melee = 1; ranged = 2; mage = 1;
-    room = new exports.Room("A5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+  if(avaliableTypes[0] == true && avaliableTypes[1] == true && avaliableTypes[2] == true && avaliableTypes[3] == true && avaliableTypes[4] == true){
+
+    melee = 1; ranged = 2; mage = 1; rogue = 1; warlock = 1;
+    room = new exports.Room("A55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
 
-    melee = 1; ranged = 3; mage = 2;
-    room = new exports.Room("D5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 2; ranged = 2; mage = 2;
-    room = new exports.Room("E5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 4; ranged = 2; mage = 3;
-    room = new exports.Room("G5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 1; ranged = 4; mage = 3;
-    room = new exports.Room("H5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 1; ranged = 3; mage = 2;
-    room = new exports.Room("J5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-  }
-  /************************/
-  //       No Melee       //
-  /************************/
-  if(avaliableTypes[1] == true && avaliableTypes[2] == true){
-
-    melee = 0; ranged = 2; mage = 3;
-    room = new exports.Room("C5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 0; ranged = 2; mage = 1;
-    room = new exports.Room("F5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 0; ranged = 4; mage = 1;
-    room = new exports.Room("K5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 0; ranged = 2; mage = 4;
-    room = new exports.Room("L5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 0; ranged = 4; mage = 2;
-    room = new exports.Room("M5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 0; ranged = 3; mage = 1;
-    room = new exports.Room("N5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-  }
-  /************************/
-  //      Only Melee      //
-  /************************/
-  if(avaliableTypes[0] == true){
-
-    melee = 4; ranged = 0; mage = 0;
-    room = new exports.Room("O5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 6; ranged = 0; mage = 0;
-    room = new exports.Room("P5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 3; ranged = 0; mage = 0;
-    room = new exports.Room("Q5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 6; ranged = 0; mage = 0;
-    room = new exports.Room("R5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 3; ranged = 0; mage = 0;
-    room = new exports.Room("S5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 5; ranged = 0; mage = 0;
-    room = new exports.Room("T5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+    melee = 1; ranged = 3; mage = 1; rogue = 2; warlock = 1;
+    room = new exports.Room("B55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
   }
 
   /************************/
-  //      No Ranged       //
+  //     A, B, C, D       //
   /************************/
-  if(avaliableTypes[0] == true && avaliableTypes[2] == true){
 
-    melee = 3; ranged = 0; mage = 4;
-    room = new exports.Room("U5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+  if(avaliableTypes[0] == true && avaliableTypes[1] == true && avaliableTypes[2] == true && avaliableTypes[3] == true){
+
+    melee = 1; ranged = 2; mage = 1; rogue = 1; warlock = 0;
+    room = new exports.Room("C55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
 
-    melee = 3; ranged = 0; mage = 1;
-    room = new exports.Room("V5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 4; ranged = 0; mage = 4;
-    room = new exports.Room("W5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 4; ranged = 0; mage = 2;
-    room = new exports.Room("X5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 1; ranged = 0; mage = 3;
-    room = new exports.Room("Y5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 3; ranged = 0; mage = 1;
-    room = new exports.Room("Z5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+    melee = 1; ranged = 2; mage = 1; rogue = 1; warlock = 0;
+    room = new exports.Room("D55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
   }
-
   /************************/
-  //     Only Ranged      //
+  //     A, B, C, E       //
   /************************/
-  if(avaliableTypes[1] == true){
+  if(avaliableTypes[0] == true && avaliableTypes[1] == true && avaliableTypes[2] == true && avaliableTypes[4] == true){
 
-    melee = 0; ranged = 2; mage = 0;
-    room = new exports.Room("I5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+    melee = 1; ranged = 2; mage = 1; rogue = 0; warlock = 1;
+    room = new exports.Room("E55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
 
-    melee = 0; ranged = 4; mage = 0;
-    room = new exports.Room("AB5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 0; ranged = 6; mage = 0;
-    room = new exports.Room("AC5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 0; ranged = 4; mage = 0;
-    room = new exports.Room("AD5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 0; ranged = 3; mage = 0;
-    room = new exports.Room("AE5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
-    allRooms.push(room);
-
-    melee = 0; ranged = 4; mage = 0;
-    room = new exports.Room("AF5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+    melee = 1; ranged = 2; mage = 1; rogue = 0; warlock = 1;
+    room = new exports.Room("F55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
   }
-
-
   /************************/
-  //       No mage       //
+  //     A, B, D, E       //
+  /************************/
+  if(avaliableTypes[0] == true && avaliableTypes[1] == true && avaliableTypes[3] == true && avaliableTypes[4] == true){
+
+    melee = 1; ranged = 2; mage = 0; rogue = 1; warlock = 1;
+    room = new exports.Room("G55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 1; ranged = 2; mage = 0; rogue = 1; warlock = 1;
+    room = new exports.Room("H55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+  }
+  /************************/
+  //     A, C, D, E       //
+  /************************/
+  if(avaliableTypes[0] == true && avaliableTypes[2] == true && avaliableTypes[3] == true && avaliableTypes[4] == true){
+
+    melee = 1; ranged = 0; mage = 1; rogue = 1; warlock = 1;
+    room = new exports.Room("I55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 1; ranged = 0; mage = 1; rogue = 1; warlock = 1;
+    room = new exports.Room("J55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //     B, C, D, E       //
+  /************************/
+  if(avaliableTypes[1] == true && avaliableTypes[2] == true && avaliableTypes[3] == true && avaliableTypes[4] == true){
+
+    melee = 0; ranged = 2; mage = 1; rogue = 1; warlock = 1;
+    room = new exports.Room("K55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 0; ranged = 2; mage = 1; rogue = 1; warlock = 1;
+    room = new exports.Room("L55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //       A, B, C        //
+  /************************/
+  if(avaliableTypes[0] == true && avaliableTypes[1] == true && avaliableTypes[2]){
+
+    melee = 1; ranged = 2; mage = 1; rogue = 0; warlock = 0;
+    room = new exports.Room("M55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 1; ranged = 2; mage = 1; rogue = 0; warlock = 0;
+    room = new exports.Room("N55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //       A, B, D        //
+  /************************/
+  if(avaliableTypes[0] == true && avaliableTypes[1] == true && avaliableTypes[3]){
+
+    melee = 1; ranged = 2; mage = 0; rogue = 1; warlock = 0;
+    room = new exports.Room("O55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 1; ranged = 2; mage = 0; rogue = 1; warlock = 0;
+    room = new exports.Room("P55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //       A, B, E        //
+  /************************/
+  if(avaliableTypes[0] == true && avaliableTypes[1] == true && avaliableTypes[4]){
+
+    melee = 1; ranged = 2; mage = 0; rogue = 0; warlock = 1;
+    room = new exports.Room("Q55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 1; ranged = 2; mage = 0; rogue = 0; warlock = 1;
+    room = new exports.Room("R55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+  }
+  /************************/
+  //       A, C, D        //
+  /************************/
+  if(avaliableTypes[0] == true && avaliableTypes[2] == true && avaliableTypes[3]){
+
+    melee = 1; ranged = 0; mage = 1; rogue = 1; warlock = 0;
+    room = new exports.Room("S55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 1; ranged = 0; mage = 1; rogue = 1; warlock = 0;
+    room = new exports.Room("T55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //       A, C, E        //
+  /************************/
+  if(avaliableTypes[0] == true && avaliableTypes[2] == true && avaliableTypes[4]){
+
+    melee = 1; ranged = 0; mage = 1; rogue = 0; warlock = 1;
+    room = new exports.Room("U55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 1; ranged = 0; mage = 1; rogue = 0; warlock = 1;
+    room = new exports.Room("V55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //       A, D, E        //
+  /************************/
+  if(avaliableTypes[0] == true && avaliableTypes[3] == true && avaliableTypes[4]){
+
+    melee = 1; ranged = 0; mage = 0; rogue = 1; warlock = 1;
+    room = new exports.Room("W55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 1; ranged = 0; mage = 0; rogue = 1; warlock = 1;
+    room = new exports.Room("X55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //       B, C, D        //
+  /************************/
+  if(avaliableTypes[1] == true && avaliableTypes[2] == true && avaliableTypes[3]){
+
+    melee = 0; ranged = 2; mage = 1; rogue = 1; warlock = 0;
+    room = new exports.Room("Y55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 0; ranged = 2; mage = 1; rogue = 1; warlock = 0;
+    room = new exports.Room("Z55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //       B, C, E        //
+  /************************/
+  if(avaliableTypes[1] == true && avaliableTypes[2] == true && avaliableTypes[4]){
+
+    melee = 0; ranged = 2; mage = 1; rogue = 0; warlock = 1;
+    room = new exports.Room("AA55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 0; ranged = 2; mage = 1; rogue = 0; warlock = 1;
+    room = new exports.Room("BB55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //       B, D, E        //
+  /************************/
+  if(avaliableTypes[1] == true && avaliableTypes[3] == true && avaliableTypes[4]){
+
+    melee = 0; ranged = 2; mage = 0; rogue = 1; warlock = 1;
+    room = new exports.Room("CC55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 0; ranged = 2; mage = 0; rogue = 1; warlock = 1;
+    room = new exports.Room("DD55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //       C, D, E        //
+  /************************/
+  if(avaliableTypes[2] == true && avaliableTypes[3] == true && avaliableTypes[4]){
+
+    melee = 0; ranged = 0; mage = 1; rogue = 1; warlock = 1;
+    room = new exports.Room("EE55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 0; ranged = 0; mage = 1; rogue = 1; warlock = 1;
+    room = new exports.Room("FF55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //         A, B         //
   /************************/
   if(avaliableTypes[0] == true && avaliableTypes[1] == true){
 
-    melee = 3; ranged = 2; mage = 0;
-    room = new exports.Room("B5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+    melee = 1; ranged = 2; mage = 0; rogue = 0; warlock = 0;
+    room = new exports.Room("GG55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
 
-    melee = 1; ranged = 2; mage = 0;
-    room = new exports.Room("AG5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+    melee = 1; ranged = 2; mage = 0; rogue = 0; warlock = 0;
+    room = new exports.Room("HH55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
 
-    melee = 3; ranged = 4; mage = 0;
-    room = new exports.Room("AH5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+  }
+  /************************/
+  //         A, C         //
+  /************************/
+  if(avaliableTypes[0] == true && avaliableTypes[2] == true){
+
+    melee = 1; ranged = 0; mage = 1; rogue = 0; warlock = 0;
+    room = new exports.Room("II55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
 
-    melee = 4; ranged = 4; mage = 0;
-    room = new exports.Room("AI5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+    melee = 1; ranged = 0; mage = 1; rogue = 0; warlock = 0;
+    room = new exports.Room("JJ55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
 
-    melee = 2; ranged = 3; mage = 0;
-    room = new exports.Room("AJ5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+  }
+  /************************/
+  //         A, D         //
+  /************************/
+  if(avaliableTypes[0] == true && avaliableTypes[3] == true){
+
+    melee = 1; ranged = 0; mage = 0; rogue = 1; warlock = 0;
+    room = new exports.Room("KK55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
 
-    melee = 3; ranged = 2; mage = 0;
-    room = new exports.Room("AK5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+    melee = 1; ranged = 0; mage = 0; rogue = 1; warlock = 0;
+    room = new exports.Room("LL55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //         A, E         //
+  /************************/
+  if(avaliableTypes[0] == true && avaliableTypes[4] == true){
+
+    melee = 1; ranged = 0; mage = 0; rogue = 0; warlock = 1;
+    room = new exports.Room("MM55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 1; ranged = 0; mage = 0; rogue = 0; warlock = 1;
+    room = new exports.Room("NN55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //         B, C         //
+  /************************/
+  if(avaliableTypes[1] == true && avaliableTypes[2] == true){
+
+    melee = 0; ranged = 2; mage = 1; rogue = 0; warlock = 0;
+    room = new exports.Room("OO55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 0; ranged = 2; mage = 1; rogue = 0; warlock = 0;
+    room = new exports.Room("PP55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //         B, D         //
+  /************************/
+  if(avaliableTypes[1] == true && avaliableTypes[3] == true){
+
+    melee = 0; ranged = 2; mage = 0; rogue = 1; warlock = 0;
+    room = new exports.Room("QQ55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 0; ranged = 2; mage = 0; rogue = 1; warlock = 0;
+    room = new exports.Room("RR55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //         B, E         //
+  /************************/
+  if(avaliableTypes[1] == true && avaliableTypes[4] == true){
+
+    melee = 0; ranged = 2; mage = 0; rogue = 0; warlock = 1;
+    room = new exports.Room("SS55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 0; ranged = 2; mage = 0; rogue = 0; warlock = 1;
+    room = new exports.Room("TT55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //         C, D         //
+  /************************/
+  if(avaliableTypes[2] == true && avaliableTypes[3] == true){
+
+    melee = 0; ranged = 0; mage = 1; rogue = 1; warlock = 0;
+    room = new exports.Room("UU55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 0; ranged = 0; mage = 1; rogue = 1; warlock = 0;
+    room = new exports.Room("VV55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //         C, E         //
+  /************************/
+  if(avaliableTypes[2] == true && avaliableTypes[4] == true){
+
+    melee = 0; ranged = 0; mage = 1; rogue = 0; warlock = 1;
+    room = new exports.Room("WW55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 0; ranged = 0; mage = 1; rogue = 0; warlock = 1;
+    room = new exports.Room("XX55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //         D, E         //
+  /************************/
+  if(avaliableTypes[3] == true && avaliableTypes[4] == true){
+
+    melee = 0; ranged = 0; mage = 0; rogue = 1; warlock = 1;
+    room = new exports.Room("YY55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 0; ranged = 0; mage = 0; rogue = 1; warlock = 1;
+    room = new exports.Room("ZZ55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //          A           //
+  /************************/
+  if(avaliableTypes[0] == true){
+
+    melee = 1; ranged = 0; mage = 0; rogue = 0; warlock = 0;
+    room = new exports.Room("AAA55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 1; ranged = 0; mage = 0; rogue = 0; warlock = 0;
+    room = new exports.Room("BBB55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
   }
-
   /************************/
-  //      Only mage      //
+  //          B           //
+  /************************/
+  if(avaliableTypes[1] == true){
+
+    melee = 0; ranged = 2; mage = 0; rogue = 0; warlock = 0;
+    room = new exports.Room("CCC55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+    melee = 0; ranged = 2; mage = 0; rogue = 0; warlock = 0;
+    room = new exports.Room("DDD55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
+    allRooms.push(room);
+
+  }
+  /************************/
+  //          C           //
   /************************/
   if(avaliableTypes[2] == true){
 
-    melee = 0; ranged = 0; mage = 3;
-    room = new exports.Room("AL5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+    melee = 0; ranged = 0; mage = 1; rogue = 0; warlock = 0;
+    room = new exports.Room("EEE55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
 
-    melee = 0; ranged = 0; mage = 3;
-    room = new exports.Room("AM5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+    melee = 0; ranged = 0; mage = 1; rogue = 0; warlock = 0;
+    room = new exports.Room("FFF55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
 
-    melee = 0; ranged = 0; mage = 3;
-    room = new exports.Room("AN5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+  }
+  /************************/
+  //          D           //
+  /************************/
+  if(avaliableTypes[3] == true){
+
+    melee = 0; ranged = 0; mage = 0; rogue = 1; warlock = 0;
+    room = new exports.Room("GGG55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
 
-    melee = 0; ranged = 0; mage = 6;
-    room = new exports.Room("AO5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+    melee = 0; ranged = 0; mage = 0; rogue = 1; warlock = 0;
+    room = new exports.Room("HHH55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
 
-    melee = 0; ranged = 0; mage = 5;
-    room = new exports.Room("AP5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+  }
+  /************************/
+  //          E           //
+  /************************/
+  if(avaliableTypes[4] == true){
+
+    melee = 0; ranged = 0; mage = 0; rogue = 0; warlock = 1;
+    room = new exports.Room("III55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
 
-    melee = 0; ranged = 0; mage = 4;
-    room = new exports.Room("AQ5",[melee,ranged,mage],monsterName.namesForLevel(melee,ranged,mage),selection.selectLevelMonsters(melee,ranged,mage));
+    melee = 0; ranged = 0; mage = 0; rogue = 0; warlock = 1;
+    room = new exports.Room("JJJ55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
   }
+
   return allRooms;
 };

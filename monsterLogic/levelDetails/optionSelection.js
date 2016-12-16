@@ -1,5 +1,6 @@
 var normal = require('../items/normal.js');
 var mmf = require('../items/MMF.js');
+var misc = require('../items/misc.js');
 var statChangeItems = require('../items/statChangeItems.js')
 
 var exports = module.exports = {};
@@ -38,6 +39,16 @@ exports.options = function(option,level,room,generation){
     case "statPill":
     statChangeItems.statPill();
     break;
+
+    case "obesity":
+    statChangeItems.obesity();
+    break;
+
+    case "invertChromosomes":
+    misc.invertChromosomes();
+    break;
+
+
 
   }
   normal.setup(level,room,generation);

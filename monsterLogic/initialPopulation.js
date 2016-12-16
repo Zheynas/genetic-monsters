@@ -24,13 +24,13 @@ exports.createMonster = function(){
   var monster = new Object();
 
   monster.health_value = utility.getRandom(1,maxStartStat+1);
-  monster.health_code = utility.decbin(monster.health_value,8);
+  monster.health_code = utility.decbin(monster.health_value,5);
 
   monster.speed_value = utility.getRandom(1,maxStartStat+1);
-  monster.speed_code = utility.decbin(monster.speed_value,8);
+  monster.speed_code = utility.decbin(monster.speed_value,5);
 
   monster.damage_value = utility.getRandom(1,maxStartStat+1);
-  monster.damage_code = utility.decbin(monster.damage_value,8);
+  monster.damage_code = utility.decbin(monster.damage_value,5);
 
   monster.fitness = fitnessFunction(monster);
 

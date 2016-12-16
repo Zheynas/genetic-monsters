@@ -22,7 +22,7 @@ exports.changeHealth= function(monster, changeAmount){
   if(monster.health_value < 1){
     monster.health_value = 1;
   }
-  monster.health_code = utility.decbin(monster.health_value,8);
+  monster.health_code = utility.decbin(monster.health_value,5);
   return monster ;
 
 };
@@ -38,7 +38,7 @@ exports.changeSpeed= function(monster, changeAmount){
   if(monster.speed_value < 1){
     monster.speed_value = 1;
   }
-  monster.speed_code = utility.decbin(monster.speed_value,8);
+  monster.speed_code = utility.decbin(monster.speed_value,5);
   return monster ;
 
 };
@@ -53,7 +53,7 @@ exports.changeDamage= function(monster, changeAmount){
   if(monster.damage_value < 1){
     monster.damage_value = 1;
   }
-  monster.damage_code = utility.decbin(monster.damage_value,8);
+  monster.damage_code = utility.decbin(monster.damage_value,5);
   return monster ;
 };
 

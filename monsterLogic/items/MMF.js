@@ -8,6 +8,7 @@ var roomSelector = require('../levels/roomSelector.js');
 var exports = module.exports = {};
 
 exports.setup = function(level,room,generation){
+  console.log("MMF");
 
   breedingChoice = "threeParentBreeding";
 

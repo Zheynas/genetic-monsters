@@ -40,11 +40,11 @@ exports.playLevel = function(){
   switch (currentLevel) {
 
     case 1:
-    optionSelection.options("normal",1,level1RoomNumber,level1GenerationNumber);
+    optionSelection.options("statPill",1,level1RoomNumber,level1GenerationNumber);
     break;
 
     case 2:
-    optionSelection.options("healthUp",2,level2RoomNumber,level2GenerationNumber);
+    optionSelection.options("invertChromosomes",2,level2RoomNumber,level2GenerationNumber);
     break;
 
     case 3:
@@ -52,15 +52,15 @@ exports.playLevel = function(){
     break;
 
     case 4:
-    optionSelection.options("normal",4,level4RoomNumber,level4GenerationNumber);
+    optionSelection.options("healthDown",4,level4RoomNumber,level4GenerationNumber);
     break;
 
     case 5:
-    optionSelection.options("normal",5,level5RoomNumber,level5GenerationNumber);
+    optionSelection.options("obesity",5,level5RoomNumber,level5GenerationNumber);
     break;
 
     case 6:
-    optionSelection.options("normal",6,level6RoomNumber,level6GenerationNumber);
+    optionSelection.options("speedUp",6,level6RoomNumber,level6GenerationNumber);
     break;
 
   }

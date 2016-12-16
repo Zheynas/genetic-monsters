@@ -92,15 +92,15 @@ exports.mutateChild = function(childMonster){
 
 exports.findValue = function(code){
 
-  childValue = parseInt(code,2);
+  value = parseInt(code,2);
 
-  if(childValue == 0)
+  if(value == 0)
   {
-    childValue =1;
-    code = utility.decbin(childValue,8)
+    value =1;
+    code = utility.decbin(value,5)
   }
 
-  return childValue;
+  return value;
 
 }
 

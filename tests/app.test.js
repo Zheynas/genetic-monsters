@@ -104,7 +104,7 @@ describe('Inital population creation', function(){
     }
     possibleCodes = [];
     for(u=0;u<possibleStats.length;u++){
-      possibleCodes.push(utility.decbin(possibleStats[u],8))
+      possibleCodes.push(utility.decbin(possibleStats[u],5))
     }
 
     assert.oneOf(population[0].health_value, possibleStats);

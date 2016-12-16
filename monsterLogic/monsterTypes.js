@@ -218,7 +218,5 @@ exports.createTypeArrays = function(){
     }
   }
 
-
-
   selection.createTypeFitnessArray();
 };

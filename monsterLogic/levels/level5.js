@@ -1,6 +1,6 @@
 var utility = require('../utility.js');
 var selection = require('../selection.js');
-var monsterName = require('../names.js');
+var monsterName = require('../monsterNames.js');
 var monsterTypes = require('../monsterTypes.js');
 
 
@@ -417,11 +417,11 @@ exports.createRooms = function(){
   /************************/
   if(avaliableTypes[2] == true){
 
-    melee = 0; ranged = 0; mage = 1; rogue = 0; warlock = 0;
+    melee = 0; ranged = 0; mage = 6; rogue = 0; warlock = 0;
     room = new exports.Room("EEE55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
 
-    melee = 0; ranged = 0; mage = 1; rogue = 0; warlock = 0;
+    melee = 0; ranged = 0; mage = 6; rogue = 0; warlock = 0;
     room = new exports.Room("FFF55",[melee,ranged,mage,rogue,warlock],monsterName.namesForLevel(melee,ranged,mage,rogue,warlock),selection.selectLevelMonsters(melee,ranged,mage,rogue,warlock));
     allRooms.push(room);
 

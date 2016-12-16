@@ -1,6 +1,6 @@
 var utility = require('../utility.js');
 var selection = require('../selection.js');
-var monsterName = require('../names.js');
+var monsterName = require('../monsterNames.js');
 var monsterTypes = require('../monsterTypes.js');
 
 

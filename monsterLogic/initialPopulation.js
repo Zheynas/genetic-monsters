@@ -1,5 +1,5 @@
 var utility = require('./utility.js');
-var monsterName = require('./names.js');
+var monsterName = require('./monsterNames.js');
 var monsterTypes = require('./monsterTypes.js');
 
 var exports = module.exports = {};

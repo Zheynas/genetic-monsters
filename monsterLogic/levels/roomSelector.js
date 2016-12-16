@@ -7,20 +7,14 @@ var level5 = require('./level5.js');
 var level6 = require('./level6.js');
 var utility = require('../utility.js');
 
-
-
 var exports = module.exports = {};
-
-
-
-
 
 exports.selectRoomForLevel = function(level,numberOfRooms){
 
   monsterTypes.createTypeArrays();
   monsterTypes.createPercentageArray()
   monsterTypes.compareTypeArrays();
-  utility.printLevelStats();
+  //utility.printLevelStats();
 
   switch (level) {
     case 1:

@@ -78,11 +78,11 @@ exports.generationSimulator = function(generationNumber){
 
 
 /*
-Create initial population //
+Create initial population // T
 
-Create type arrays //
-Create type fitness arrays //
-Select rooms //
+Create type arrays // T
+Create type fitness arrays // T
+Select rooms // T
 Find monsters needed from type fitness //
 Play Level //
 Kill old ones //

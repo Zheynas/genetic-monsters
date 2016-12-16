@@ -1,5 +1,5 @@
 var utility = require('./utility.js');
-var monsterName = require('./names.js');
+var monsterName = require('./monsterNames.js');
 
 var exports = module.exports = {};
 
@@ -86,7 +86,7 @@ exports.selectLevelMonsters = function(melee,ranged,mage,rogue,warlock){
     mageArray.push(mageType[exports.rouletteChooser(mageTypeFitness)-1])
   }
   for(j=0;j<rogue;j++){
-    mageArray.push(rogueType[exports.rouletteChooser(rogueTypeFitness)-1])
+    rogueArray.push(rogueType[exports.rouletteChooser(rogueTypeFitness)-1])
   }
   for(j=0;j<warlock;j++){
     warlockArray.push(warlockType[exports.rouletteChooser(warlockTypeFitness)-1])

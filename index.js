@@ -5,7 +5,7 @@ var roomSelector = require('./monsterLogic/levels/roomSelector.js');
 var monsterTypes = require('./monsterLogic/monsterTypes.js');
 var breeding = require('./monsterLogic/breeding.js');
 
-
+var prompt = require('prompt');
 ///////////////////////////////////////
 //                                   //
 //                                   //
@@ -74,4 +74,20 @@ Main = function(){
 
 };
 
-Main();
+//Main();
+//
+  // Start the prompt
+  //
+  prompt.start();
+
+  //
+  // Get two properties from the user: username and email
+  //
+  prompt.get(['username', 'email'], function (err, result) {
+    //
+    // Log the results.
+    //
+    console.log('Command-line input received:');
+    console.log('  username: ' + result.username);
+    console.log('  email: ' + result.email);
+  });

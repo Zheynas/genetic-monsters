@@ -44,7 +44,7 @@ exports.playLevel = function(){
     break;
 
     case 2:
-    optionSelection.options("invertChromosomes",2,level2RoomNumber,level2GenerationNumber);
+    optionSelection.options("statPill",2,level2RoomNumber,level2GenerationNumber);
     break;
 
     case 3:

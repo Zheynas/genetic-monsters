@@ -23,10 +23,11 @@ exports.invertChromosomes=function(){
 
 exports.invert = function(code){
   for(i=0;i<code.length;i++){
-    if(code.charAt(i)==0){
-      utility.setCharAt(code,i,1);
+    if(code.charAt(i)=="0"){
+      code = utility.setCharAt(code,i,"1");
     }else{
-      utility.setCharAt(code,i,0);
+      code = utility.setCharAt(code,i,"0");
     }
   }
+  return code;
 }

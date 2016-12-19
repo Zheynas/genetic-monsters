@@ -5,6 +5,7 @@ var roomSelector = require('../monsterLogic/levels/roomSelector.js');
 var utility = require('../monsterLogic/utility.js');
 var monsterNames = require('../monsterLogic/monsterNames.js');
 var selection = require('../monsterLogic/selection.js');
+var misc = require('../monsterLogic/items/misc.js');
 
 
 var expect = chai.expect;
@@ -202,4 +203,10 @@ describe('Breeding functions', function(){
     it('Child monster has all stats');
     it('Child has a type');
     it('Correct number of children created');
+})
+
+describe('Invert chromosome function', function(){
+  it('Inverts code', function(){
+    expect(misc.invert("101")).to.equal("010");
+  })
 })

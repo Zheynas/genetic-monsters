@@ -1,31 +1,35 @@
-// Level 1
+// // Level 1
 var exports = module.exports = {};
 
-roomMatrix =
-  [
-  0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,1,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0,
-  0,0,0,0,0,0,0,0,0,0
+matrix =
+[
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0],
+  [0,0,0,0,0,0,0,0,0,0]
 ];
 
 exports.changeMatrix = function(){
 
-  for(i=0;i<roomMatrix.length; i++){
+  for(i=1;i<matrix.length-1; i++){
+    for(j=1;j<matrix[0].length-1;j++){
 
-    randomNumber = exports.getRandom(0,3);
+      if(matrix[i][j]==0){
+        randomNumber = exports.getRandom(0,3);
 
-    if(randomNumber==0){
-      roomMatrix[i] = 1;
+        if(randomNumber==0){
+          matrix[i][j] = 1;
+        }
+      }
     }
   }
 }
-
 
 exports.getRandom = function(min,max){
   min = Math.ceil(min);
@@ -33,20 +37,111 @@ exports.getRandom = function(min,max){
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
-exports.printMatrix = function(){
-console.log(roomMatrix[0],roomMatrix[1],roomMatrix[2],roomMatrix[3],roomMatrix[4],roomMatrix[5],roomMatrix[6],roomMatrix[7],roomMatrix[8],roomMatrix[9]);
-console.log(roomMatrix[10],roomMatrix[11],roomMatrix[12],roomMatrix[13],roomMatrix[14],roomMatrix[15],roomMatrix[16],roomMatrix[17],roomMatrix[18],roomMatrix[19]);
-console.log(roomMatrix[20],roomMatrix[21],roomMatrix[22],roomMatrix[23],roomMatrix[24],roomMatrix[25],roomMatrix[26],roomMatrix[27],roomMatrix[28],roomMatrix[29]);
-console.log(roomMatrix[30],roomMatrix[31],roomMatrix[32],roomMatrix[33],roomMatrix[34],roomMatrix[35],roomMatrix[36],roomMatrix[37],roomMatrix[38],roomMatrix[39]);
-console.log(roomMatrix[40],roomMatrix[41],roomMatrix[42],roomMatrix[43],roomMatrix[44],roomMatrix[45],roomMatrix[46],roomMatrix[47],roomMatrix[48],roomMatrix[49]);
-console.log(roomMatrix[50],roomMatrix[51],roomMatrix[52],roomMatrix[53],roomMatrix[54],roomMatrix[55],roomMatrix[56],roomMatrix[57],roomMatrix[58],roomMatrix[59]);
-console.log(roomMatrix[60],roomMatrix[61],roomMatrix[62],roomMatrix[63],roomMatrix[64],roomMatrix[65],roomMatrix[66],roomMatrix[67],roomMatrix[68],roomMatrix[69]);
-console.log(roomMatrix[70],roomMatrix[71],roomMatrix[72],roomMatrix[73],roomMatrix[74],roomMatrix[75],roomMatrix[76],roomMatrix[77],roomMatrix[78],roomMatrix[79]);
-console.log(roomMatrix[80],roomMatrix[81],roomMatrix[82],roomMatrix[83],roomMatrix[84],roomMatrix[85],roomMatrix[86],roomMatrix[87],roomMatrix[88],roomMatrix[89]);
+roomArray = [];
+numberOfRooms = 0;
 
+exports.createRooms = function(){
+  for(i=1;i<matrix.length-1;i++){
+    for(j=1;j<matrix[i].length-1;j++){
+      if(matrix[i][j]==1){
+
+        rooms = [];
+        rooms.push([i,j]);
+
+        if(matrix[i-1][j] == 1){
+          rooms.push([i-1,j]);
+        }
+        if(matrix[i+1][j] == 1){
+          rooms.push([i+1,j]);
+        }
+        if(matrix[i][j-1] == 1){
+          rooms.push([i,j-1]);
+        }
+        if(matrix[i][j+1] == 1){
+          rooms.push([i,j+1]);
+        }
+
+        roomArray.push(rooms);
+      }
+    }
+  }
+  numberOfRooms = roomArray.length;
 }
+
+
+
+exports.mergeRooms = function(array1,array2){
+  for(y=0;y<array2.length;y++){
+    array1.push([array2[y][0],array2[y][1]])
+  }
+  return array1;
+}
+
+exports.combineRooms = function(){
+  v=roomArray.length;
+  for(k=1;k<v;k++){
+    for(h=0;h<v;h++){
+      if(h!=k){
+        if(exports.checkOverlap(roomArray[k],roomArray[h])==true){
+          roomArray[h] = exports.mergeRooms(roomArray[h],roomArray[k])
+          roomArray.splice(k,1);
+          v=roomArray.length;
+        }
+      }
+    }
+  }
+  for(t=0;t<roomArray.length;t++){
+    roomArray[t] = exports.removeDuplicates(roomArray[t]);
+  }
+}
+
+exports.checkOverlap = function(array1,array2){
+  for(i=0;i<array1.length;i++){
+    for(j=0;j<array2.length;j++){
+      if(array1[i][0]==array2[j][0] && array1[i][1]==array2[j][1]){
+        return true;
+      }
+    }
+  }
+  return false
+}
+
+exports.removeDuplicates = function(room){
+  uniqueArray = [];
+
+  for(i=0;i<room.length;i++){
+    if(exports.checkDuplicates(uniqueArray,room[i])==false){
+      uniqueArray.push(room[i]);
+    }
+  }
+  return uniqueArray;
+}
+
+exports.checkDuplicates = function(array,room){
+  for(w=0;w<array.length;w++){
+    if(array[w][0]==room[0] && array[w][1]==room[1]){
+      return true;
+    }
+  }
+  return false;
+}
+
+exports.printRooms = function(){
+  for(k=0;k<roomArray.length;k++){
+    roomString = roomArray[k];
+    console.log("Chain size: ", roomString.length);
+    for(n=0;n<roomString.length;n++){
+      console.log(roomString[n][0],roomString[n][1]);
+    }
+  }
+}
+
 
 exports.main = function(){
   exports.changeMatrix();
-  exports.printMatrix();
+  exports.createRooms();
+  exports.combineRooms();
+  exports.printRooms();
+
+
 }

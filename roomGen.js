@@ -1,19 +1,26 @@
 // // Level 1
 var exports = module.exports = {};
 
-matrix =
-[
-  [0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0],
-  [0,0,0,0,0,0,0,0,0,0]
-];
+// matrix =
+// [
+//   [0,0,0,0,0,0,0,0,0,0],
+//   [0,0,0,0,0,0,0,0,0,0],
+//   [0,0,0,0,0,0,0,0,0,0],
+//   [0,0,0,0,0,0,0,0,0,0],
+//   [0,0,0,0,0,0,0,0,0,0],
+//   [0,0,0,0,0,0,0,0,0,0],
+//   [0,0,0,0,0,0,0,0,0,0],
+//   [0,0,0,0,0,0,0,0,0,0],
+//   [0,0,0,0,0,0,0,0,0,0],
+//   [0,0,0,0,0,0,0,0,0,0]
+// ];
+
+matrix = [
+  [0,0,0,0,0,0],
+  [0,0,0,0,0,0],
+  [0,0,0,0,0,0],
+  [0,0,0,0,0,0],
+]
 
 exports.changeMatrix = function(){
 
@@ -28,6 +35,12 @@ exports.changeMatrix = function(){
         }
       }
     }
+  }
+}
+
+exports.printMatix = function(){
+  for(d=0;d<matrix.length;d++){
+    console.log(matrix[d]);
   }
 }
 
@@ -78,17 +91,20 @@ exports.mergeRooms = function(array1,array2){
 }
 
 exports.combineRooms = function(){
+
   v=roomArray.length;
-  for(k=1;k<v;k++){
+  for(k=1;k<v;++k){
     for(h=0;h<v;h++){
-      if(h!=k){
+      if(h!=k && k<v){
         if(exports.checkOverlap(roomArray[k],roomArray[h])==true){
           roomArray[h] = exports.mergeRooms(roomArray[h],roomArray[k])
           roomArray.splice(k,1);
           v=roomArray.length;
         }
       }
+      v=roomArray.length;
     }
+    v=roomArray.length;
   }
   for(t=0;t<roomArray.length;t++){
     roomArray[t] = exports.removeDuplicates(roomArray[t]);
@@ -96,6 +112,7 @@ exports.combineRooms = function(){
 }
 
 exports.checkOverlap = function(array1,array2){
+  console.log(array1,array2);
   for(i=0;i<array1.length;i++){
     for(j=0;j<array2.length;j++){
       if(array1[i][0]==array2[j][0] && array1[i][1]==array2[j][1]){
@@ -139,6 +156,7 @@ exports.printRooms = function(){
 
 exports.main = function(){
   exports.changeMatrix();
+  exports.printMatix();
   exports.createRooms();
   exports.combineRooms();
   exports.printRooms();

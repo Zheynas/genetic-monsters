@@ -1,0 +1,14 @@
+/Users/sah80/top-down/Temp/bin/Debug/UnityEngine.dll
+/Users/sah80/top-down/Temp/bin/Debug/UnityEditor.dll
+/Users/sah80/top-down/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/sah80/top-down/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/sah80/top-down/Temp/bin/Debug/UnityEngine.Analytics.dll
+/Users/sah80/top-down/Temp/bin/Debug/Mono.Cecil.dll
+/Users/sah80/top-down/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/sah80/top-down/Temp/bin/Debug/Unity.DataContract.dll
+/Users/sah80/top-down/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/sah80/top-down/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/sah80/top-down/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/sah80/top-down/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/sah80/top-down/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/sah80/top-down/Temp/bin/Debug/Mono.Cecil.Mdb.dll

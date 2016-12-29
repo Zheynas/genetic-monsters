@@ -89,6 +89,7 @@
 'Assets/Scripts/Entity.cs'
 'Assets/Scripts/GameCamera.cs'
 'Assets/Scripts/Gun.cs'
+'Assets/Scripts/InitialPopulation.cs'
 'Assets/Scripts/MakeRoom.cs'
 'Assets/Scripts/Player.cs'
 'Assets/Scripts/PlayerController.cs'

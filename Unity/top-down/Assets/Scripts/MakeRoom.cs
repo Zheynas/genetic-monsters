@@ -18,6 +18,9 @@ public class MakeRoom : MonoBehaviour {
 	public Transform noTop;
 	public Transform noBottom;
 	public Transform allSides;
+	public Transform player;
+	public Transform camera;
+	public Transform SO_01;
 
 	private int block = -30;
 
@@ -56,10 +59,6 @@ public class MakeRoom : MonoBehaviour {
 				}
 			}
 		}
-//		Debug.Log(matrixList[0][0] + "  " + matrixList[0][1] + "  " + matrixList[0][2] + "  " + matrixList[0][3]);
-//		Debug.Log(matrixList[1][0] + "  " + matrixList[1][1] + "  " + matrixList[1][2] + "  " + matrixList[1][3]);
-//		Debug.Log(matrixList[2][0] + "  " + matrixList[2][1] + "  " + matrixList[2][2] + "  " + matrixList[2][3]);
-//		Debug.Log(matrixList[3][0] + "  " + matrixList[3][1] + "  " + matrixList[3][2] + "  " + matrixList[3][3]);
 	}
 
 	// Takes co-ordinates and makes them into a room list
@@ -227,97 +226,68 @@ public class MakeRoom : MonoBehaviour {
 	}
 
 	void roomType(){
-		Debug.Log ("room count: " + roomObjects.Count);
 		for (int i = 0; i < roomObjects.Count; i++) {
-			Debug.Log ("i: " + i);
 			Room room = roomObjects [i];
-			Debug.Log ("self: " + room.self [0] + "," + room.self [1] + " up" + room.up [0] + "," + room.up [1] + " down" + room.down [0] + "," + room.down [1] + " left" + room.left [0] + "," + room.left [1] + " right" + room.right [0] + "," + room.right [1]);
 			bool up = checkIfExists(room.up) ; bool down = checkIfExists(room.down); bool left = checkIfExists(room.left); bool right = checkIfExists(room.right);
 			int y = room.self[0]; int x = -room.self[1];
-			Debug.Log ("x: "+ x);
-			Debug.Log ("y: " + y);
+
+			if (i == 0) {
+				Instantiate(player, new Vector3(x*block, 0, y*block), Quaternion.identity);
+				Instantiate(camera, new Vector3(0, 25, 0), Quaternion.Euler(90, 0, 0));
+			}
 
 			if (up == true && down == true && left == true && right == true) {
 				Instantiate(allSides, new Vector3(x*block, 0, y*block), Quaternion.identity);
-				Debug.Log ("allSides");
 			}
 			if (up == true && down == false && left == false && right == false) {
 				Instantiate(onlyTop, new Vector3(x*block, 0, y*block), Quaternion.identity);
-				Debug.Log ("onlyTop");
 			}
 			if (up == false && down == true && left == false && right == false) {
 				Instantiate(onlyBottom, new Vector3(x*block, 0, y*block), Quaternion.identity);
-				Debug.Log ("onlyBottom");
 			}
 			if (up == false && down == false && left == true && right == false) {
 				Instantiate(onlyLeft, new Vector3(x*block, 0, y*block), Quaternion.identity);
-				Debug.Log ("onlyLeft");
 			}
 			if (up == false && down == false && left == false && right == true) {
 				Instantiate(onlyRight, new Vector3(x*block, 0, y*block), Quaternion.identity);
-				Debug.Log ("onlyRight");
 			}
 			if (up == true && down == true && left == false && right == false) {
 				Instantiate(topBottom, new Vector3(x*block, 0, y*block), Quaternion.identity);
-				Debug.Log ("topBottom");
 			}
 			if (up == true && down == false && left == true && right == false) {
 				Instantiate(topLeft, new Vector3(x*block, 0, y*block), Quaternion.identity);
-				Debug.Log ("topLeft");
 			}
 			if (up == true && down == false && left == false && right == true) {
 				Instantiate(topRight, new Vector3(x*block, 0, y*block), Quaternion.identity);
-				Debug.Log ("topRight");
 			}
 			if (up == false && down == true && left == true && right == false) {
 				Instantiate(bottomLeft, new Vector3(x*block, 0, y*block), Quaternion.identity);
-				Debug.Log ("bottomLeft");
 			}
 			if (up == false && down == true && left == false && right == true) {
 				Instantiate(bottomRight, new Vector3(x*block, 0, y*block), Quaternion.identity);
-				Debug.Log ("bottomRight");
 			}
 			if (up == true && down == true && left == false && right == true) {
 				Instantiate(noLeft, new Vector3(x*block, 0, y*block), Quaternion.identity);
-				Debug.Log ("noLeft");
 			}
 			if (up == true && down == true && left == true && right == false) {
 				Instantiate(noRight, new Vector3(x*block, 0, y*block), Quaternion.identity);
-				Debug.Log ("noRight");
 			}
 			if (up == false && down == true && left == true && right == true) {
 				Instantiate(noTop, new Vector3(x*block, 0, y*block), Quaternion.identity);
-				Debug.Log ("noTop");
 			}
 			if (up == true && down == false && left == true && right == true) {
 				Instantiate(noBottom, new Vector3(x*block, 0, y*block), Quaternion.identity);
-				Debug.Log ("noBottom");
 			}
 			if (up == false && down == false && left == true && right == true) {
-				Instantiate(sides, new Vector3(x*block, 0, y*block), Quaternion.identity);
-				Debug.Log ("sides");
+				Instantiate(SO_01, new Vector3(x*block, 0, y*block), Quaternion.identity);
 			}
 
 		}
 	}
-
-
-
-
-	// Use this for initialization
 	void Start () {
 
 		createMatrix ();
 		creation ();
-
-
-	}
-
-	
-
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }
 
